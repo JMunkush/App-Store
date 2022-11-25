@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+
+    <section class="item">
+
+        <div class="container">
+
+            <div class="item__inner-wrap">
+
+                <div class="item__images">
+                    <div class="row gx-2">
+                        <div class="col-4">
+                            <div class="item__images-img">
+                                <img th:src="${item.getSmallPicURL()}" alt="product image" class="img-fluid">
+                            </div>
+                        </div>
+<!--                        <div class="col-6">-->
+<!--                            <div class="item__images-img">-->
+<!--                                <img src="./img/item2.jpg" alt="product image" class="img-fluid">-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    <div class="row gx-2">-->
+<!--                        <div class="col-4">-->
+<!--                            <div class="item__images-img">-->
+<!--                                <img src="./img/item3.jpg" alt="product image" class="img-fluid">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <div class="item__images-img">-->
+<!--                                <img src="./img/item4.jpg" alt="product image" class="img-fluid">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <div class="item__images-img">-->
+<!--                                <img src="./img/item5.jpg" alt="product image" class="img-fluid">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                <div class="col-8">
+                    <div class="item__info">
+                        <h6 class="item__info-name" th:text="${item.getName()}"></h6>
+                        <ul class="item__info-list">
+                            <li class="item__info-item">Состав: <span th:text="${item.compound}"></span></li>
+                            <li class="item__info-item">Коллекция: <span th:text="${item.brands.name}"></span></li>
+                            <li class="item__info-item">Иллюстрация: <span th:text="${item.getName()}"></span></li>
+                            <li class="item__info-item">Количество: 1</li>
+                        </ul>
+
+                        <div class="item__info-order row justify-content-start row-cols-auto g-0">
+                            <div class="dropdown item__info-order-size col">
+                                <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Выбрать размер
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <span>S</span><span>44-48</span>
+                                    </li>
+                                    <li>
+                                        <span>M</span><span>50-52</span>
+                                    </li>
+                                    <li>
+                                        <span>L</span><span>52-54</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item__info-counter btn-border col">
+						<span class="item__info-counter-btn item__info-counter-btn_increment">
+							<i class="icon-arrow-down"></i>
+						</span>
+                                <span class="item__info-counter-num">1</span>
+                                <span class="item__info-counter-btn item__info-counter-btn_decrement">
+							<i class="icon-arrow-down"></i>
+						</span>
+                            </div>
+                            <div class="dropdown item__info-order-color col">
+                                <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Цвета
+                                </button>
+                                <ul class="dropdown-menu" id="itemColorsList">
+                                    <li data-color="Желтый">
+                                        Желтый
+                                    </li>
+                                    <li data-color="Черный">
+                                        Черный
+                                    </li>
+                                    <li data-color="Красный">
+                                        Красный
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="item__info-price" th:text="${item.price} + ${' тг'}"></h6>
+                        <a class="item__info-order-btn" type="button" th:href="@{'basketPage?id='+${item.id}}">Добавить в корзину</a>
+                        <!--                    <form th:action="@{'basketPage'}">-->
+                        <!--                        <button class="item__info-order-btn" type="button">-->
+                        <!--    &lt;!&ndash;                        th:href="@{'basketPage?id='+${item.id}}"&ndash;&gt;-->
+                        <!--                            Добавить в корзину-->
+                        <!--                        </button>-->
+                        <!--                    </form>-->
+                    </div>
+                </div>
+                </div>
+                </div>
+                <div class="item__description">
+                    <h6 class="item__description-title">Описание</h6>
+                    <p class="item__description-txt" th:text="${item.description}"></p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+<!--    <div class = "row mt-3">-->
+<!--        <div class = "col-sm-3">-->
+<!--           <ul class="list-group" >-->
+<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white" th:text="#{Categories}">Categories</strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/cart.png">   <strong style="color: black" th:text="#{All}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/phone.png">  <strong style="color: black"  th:text="#{Phone_Gadgets}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/tv.png">  <strong style="color: black"  th:text="#{TV_audio}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/game.png">  <strong style="color: black"   th:text="#{Game_Consoles}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/trolley-cart.png"> <strong style="color: black"  th:text="#{Other}">Other</strong></li>-->
+<!--            </ul>-->
+<!--            <br>-->
+<!--            <ul class="list-group" >-->
+<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white"  th:text="#{label.brands}"></strong></li>-->
+<!--                <strong style="color: black" ><a th:href="@{'detailsBrand?id='+${br.getId()}}" class="list-group-item list-group-item-action" th:each="br:${brands}" th:text="${br.getName()}" style="color: black"></a></strong>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--        <div class = "col-sm-9">-->
+<!--            <div class="row">-->
+<!--                <div class="col-9">-->
+<!--                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">-->
+<!--                </div>-->
+<!--                <div class="col-3">-->
+<!--                    <button class="btn btn-success" type="submit" style="width: 180px">Search</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="card-deck">-->
+<!--                        <div class="card mt-3" >-->
+<!--                            <img th:src="${item.getLargePicURL()}" class="card-img-top" alt="..." style="height: 500px;">-->
+<!--                            <div class="card-body">-->
+<!--                                <a th:href="@{'details?id='+${item.getId()}}"><h6 class="card-title" th:text="${item.getName()}"></h6></a>-->
+<!--                                <strong style="color: black"><h5 class="card-title" th:text="${'$'} + ${item.price} "></h5></strong>-->
+<!--                                <p class="card-text" th:text="${item.description}" style="min-height: 75px;"></p>-->
+<!--                                <strong style="color: black">BRAND: </strong><a th:href="@{'detailsBrand?id='+${item.brands.getId()}}" class="link" th:text="${item.getBrands().getName()} + ',' + ${item.getBrands().getCountries().getName()}"></a>-->
+<!--                                <br>-->
+<!--                                <h4 style="margin-left:330px;">Screenshots</h4>-->
+<!--                                <br>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="big-screen">-->
+<!--                                        <img  style="width:300px;height: 300px;max-width: none;padding: 0px;border: 2px solid #dee2e6;margin-left:270px;"th:src="@{'/viewphoto_item/'+${pictures[0].url}}" class="img-thumbnail">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <br/>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="slides" style="flex-grow:0;margin-right: 10px;" th:each="p:${pictures}">-->
+<!--                                        <img th:if="${p.item.id == item.id}" style="width:100px;height: 100px;max-width: none;padding: 0px;border: 2px solid #dee2e6;"th:src="@{'/viewphoto_item/'+${p.url}}" class="img-thumbnail">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer">-->
+<!--                                <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,(item.stars)-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">-->
+<!--                                <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(item.stars)-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <a type="button" class="btn btn-success" th:href="@{'basketPage?id='+${item.id}}" >Add to Basket</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.row .slides > img').click(function(){
+                var $smallImages = $(this).attr('src');
+                $('.big-screen > img').attr('src',$smallImages);
+            });
+        });
+    </script>
+</div>
+
+</html>

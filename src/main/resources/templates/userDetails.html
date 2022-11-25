@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/admin_main.html">
+
+
+<div layout:fragment="main-content" style="margin-left: 0px">
+    <div class = "row">
+        <div class = "col-sm-3" style="background-color: #e9ecef;height: 800px">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p>ADMIN PANEL</p>
+                    <p><a href="/usersPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Пользователи</a></p>
+                    <p><a href="/rolesPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Роли</a></p>
+                    <p><a href="/adminPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Страны</a></p>
+                    <p><a href="/brand_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Коллекция</a></p>
+                    <p><a href="/item_page" sec:authorize="hasAnyRole('ROLE_MODERATOR','ROLE_ADMIN')">Товары</a></p>
+                    <p><a href="/category_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Категории</a></p>
+                    <p><a href="/size_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Размеры</a>
+                    <p><a href="/color_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Цвета</a>
+                    <p><a href="/banner_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Баннеры</a>
+                    <p><a href="/itemsBasket_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">История заказов</a></p>
+                </div>
+            </div>
+        </div>
+        <div class = "col-sm-9" style="background-color: white">
+            <div class="card"style="width: 900px;border: none;margin-top: 50px;">
+                <h5 class="card-header" style="background-color: white">Пользователь
+                </h5>
+                <div class="card-body">
+                    <form th:action="@{'/editUser'}" method = "post">
+                        <input type="hidden" name="id" th:value="${user.getId()}">
+                        <div class="form-group">
+                            <label  class="col-form-label">ФИО Пользователя:</label>
+                            <input type="text" class="form-control" name="full_name" th:value="${user.full_name}">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Email:</label>
+                            <input class="form-control" name ="email" th:value="${user.email}" >
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Пароль:</label>
+                            <input type="text" class="form-control" name="password" th:value="${user.password}">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary"style="background-color: #122647 ">Редактировать</button>
+                            <a th:href="@{'deleteUser?id='+${user.getId()}}" type="button" class="btn btn-danger">Удалить</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <table class="table" style="width:900px;margin-bottom: 0px;">
+                        <tbody>
+                        <tr th:each="c,index : ${roles}">
+                            <form th:action="@{'/assignedRoles'}" method="post" >
+                                <input type="hidden" name="user_id" th:value="${user.id}">
+                                <input type="hidden" name="role_id" th:value="${c.id}">
+                                <td th:text="${c.name}"></td>
+                                <td name="category" width="10%">
+                                    <a  th:href="@{'deleteRole?user_id='+${user.id} + '&role_id='+${c.id}}"  th:value="${c.name}" class="btn btn-danger" th:hidden="${!user.roles.contains(c)}" type="submit" ><img src="icons/minus.png"></a>
+                                    <button  th:value="${c.name}" class="btn btn-success" th:hidden="${user.roles.contains(c)}" type="submit" ><img src="icons/add.png"></button>
+
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

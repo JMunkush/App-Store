@@ -1,0 +1,283 @@
+@import '../variables';
+
+.how-order {
+	padding: 15px 0 80px;
+
+	& > .container {
+		padding: 0 32px;
+	}
+
+	// // .how-order__inner-wrap
+	// &__inner-wrap {
+	// }
+
+	// .how-order__txt
+	&__txt {
+		margin: 0 0 20px 0;
+		font-weight: 400;
+		font-size: 16px;
+		color: $brownGrey;
+	}
+
+	// .how-order__steps
+	&__steps {
+		height: 400px;
+		position: relative;
+	}
+
+	// .how-order__steps-inp
+	&__steps-inp {
+		display: none;
+
+		&:checked + .how-order__steps-body {
+			left: 0;
+			opacity: 1;
+			z-index: 4;
+
+			& > .how-order__steps-txt {
+				opacity: 1;
+			}
+		}
+
+		&[id="step1"]:checked ~ .circle {
+			top: 0;
+		}
+		&[id="step2"]:checked ~ .circle {
+			top: 25%;
+		}
+		&[id="step3"]:checked ~ .circle {
+			top: 50%;
+		}
+		&[id="step4"]:checked ~ .circle {
+			top: 75%;
+		}
+		&[id="step5"]:checked ~ .circle {
+			top: 100%;
+		}
+	}
+
+	// .how-order__steps-lbl
+	&__steps-lbl {
+		position: absolute;
+		left: 2px;
+		width: 20px;
+		height: 20px;
+		background-color: $stepsLbl;
+		border-radius: 50%;
+		z-index: 6;
+		cursor: pointer;
+
+		&[for="step1"] {
+			top: 0;
+		}
+		&[for="step2"] {
+			top: 25%;
+		}
+		&[for="step3"] {
+			top: 50%;
+		}
+		&[for="step4"] {
+			top: 75%;
+		}
+		&[for="step5"] {
+			top: 100%;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -65px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 3px;
+			height: 50px;
+			background-color: $stepsLbl;
+		}
+
+		&:last-of-type::after {
+			display: none;
+		}
+
+	}
+
+	// .how-order__steps-body
+	&__steps-body {
+		padding: 0 33px;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		z-index: -1;
+		text-align: center;
+		transition: all .3s linear;
+	}
+
+	// .how-order__steps-count
+	&__steps-count {
+		font-weight: 700;
+		font-size: 20px;
+		margin: 0 0 80px 0;
+	}
+
+	// .how-order__steps-txt
+	&__steps-txt {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		opacity: 0;
+		transition: all .5s linear;
+
+		& > span {
+			font-weight: 600;
+		}
+	}
+
+	// .how-order__catalog-btn
+	&__catalog-btn {
+		margin: -18px 0 0 0;
+		text-decoration: none;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 1;
+		padding: .4em 2.2em;
+		align-self: center;
+	}
+}
+
+.circle {
+	position: absolute;
+	left: 2px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: $purple;
+	z-index: 7;
+	transition: all .3s linear;
+}
+
+@media screen and (min-width: 1040px) {
+
+	.how-order {
+		padding: 90px 0 200px;
+	
+		& > .container {
+			padding: 0 .75rem;
+		}
+	
+		// .how-order__inner-wrap
+		&__inner-wrap {
+			flex-direction: row !important;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+	
+		// .how-order__txt
+		&__txt {
+			margin: 0;
+			font-size: 20px;
+		}
+	
+		// .how-order__steps
+		&__steps {
+			padding: 130px 0 0 0;
+			flex: 0 0 680px;
+			height: 260px;
+		}
+
+		// .how-order__steps-body
+		&__steps-body {
+			padding: 130px 0 0 0;
+			width: 140%;
+		}
+	
+		// .how-order__steps-inp
+		&__steps-inp {
+
+			&:checked + .how-order__steps-body {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			&[id="step1"]:checked ~ .circle {
+				top: 5px;
+				left: 0;
+			}
+			&[id="step2"]:checked ~ .circle {
+				top: 5px;
+				left: 165px;
+			}
+			&[id="step3"]:checked ~ .circle {
+				top: 5px;
+				left: 330px;
+			}
+			&[id="step4"]:checked ~ .circle {
+				top: 5px;
+				left: 495px;
+			}
+			&[id="step5"]:checked ~ .circle {
+				top: 5px;
+				left: 660px;
+			}
+		}
+	
+		// .how-order__steps-lbl
+		&__steps-lbl {
+
+			&[for="step1"] {
+				top: 5px;
+				left: 0;
+			}
+			&[for="step2"] {
+				top: 5px;
+				left: 165px;
+			}
+			&[for="step3"] {
+				top: 5px;
+				left: 330px;
+			}
+			&[for="step4"] {
+				top: 5px;
+				left: 495px;
+			}
+			&[for="step5"] {
+				top: 5px;
+				left: 660px;
+			}
+	
+			&::after {
+				bottom: 50%;
+				left: 100%;
+				transform: translateX(15px) translateY(50%);
+				height: 3px;
+				width: 115px;
+			}
+	
+			&:last-of-type::after {
+				display: none;
+			}
+	
+		}
+	
+		// .how-order__steps-count
+		&__steps-count {
+			font-size: 25px;
+		}
+	
+		// .how-order__steps-txt
+		&__steps-txt {
+			font-size: 18px;
+			line-height: 22px;
+		}
+	
+		// .how-order__catalog-btn
+		&__catalog-btn {
+			margin: 0;
+			align-self: flex-start;
+		}
+	}
+	.circle {
+		left: 5px;
+		top: 5px;
+	}
+}

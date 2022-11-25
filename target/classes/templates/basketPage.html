@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+
+    <div class="modal fade show" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-card">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="modal-card__form order-form" action="#" method="get">
+
+                        <label for="nameInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="nameInp" autocomplete="off" placeholder="ФИО*" required>
+                        </label>
+                        <label for="mailInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="mailInp" autocomplete="off" placeholder="Электроная почта*" required>
+                        </label>
+                        <label for="phoneInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="phoneInp" autocomplete="off" placeholder="Номер телефона*" required>
+                        </label>
+                        <div class="dropdown drop-right modal-card__dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Какой вид связи вам подходит?
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    Whatsapp
+                                    <input type="radio" name="callMathod" checked id="callMathod1">
+                                </li>
+                                <li>
+                                    Telegramm
+                                    <input type="radio" name="callMathod" id="callMathod2">
+                                </li>
+                            </ul>
+                        </div>
+                        <label for="countryInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="countryInp" autocomplete="off" placeholder="Страна*" required>
+                        </label>
+                        <label for="cityInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="cityInp" autocomplete="off" placeholder="Город*" required>
+                        </label>
+                        <label for="homeInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="homeInp" autocomplete="off" placeholder="Улица, номер дома и квартиры*" required>
+                        </label>
+                        <label for="zipInp" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="zipInp" autocomplete="off" placeholder="ZIP*" required>
+                        </label>
+                        <div class="dropdown modal-card__dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cпособ доставки
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    С собой
+                                    <input type="radio" name="orderMathod" checked id="orderMathod1">
+                                </li>
+                                <li>
+                                    Доставка
+                                    <input type="radio" name="orderMathod" id="orderMathod2">
+                                </li>
+                            </ul>
+                        </div>
+                        <label for="nameInp" class="modal-card__lbl order-form__lbl">
+                            <textarea class="modal-card__txtarea" autocomplete="off" placeholder="Коментарий*" required></textarea>
+                        </label>
+
+                        <div class="modal-card__bttm">
+                            <div class="modal-card__sum">2 товара</div>
+                            <div class="modal-card__sum">39.800 тг</div>
+                        </div>
+
+                        <button class="btn-border modal-card__order-submit-btn" data-bs-dismiss="modal" type="submit">Оплатить</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main-products">
+
+        <div class="container">
+            <div class="main-products__inner-wrap">
+                <ul class="main-products__list">
+                    <li class="main-products__item" th:each="item: ${session.basket}">
+                        <div class="main-products__card">
+
+                            <div class="main-products__left">
+
+                                <div class="main-products__img">
+                                    <img src="img/item2.jpg" alt="product item image" class="img-fluid">
+                                </div>
+
+                                <div class="main-products__name-size">
+                                    <div class="main-products__item-name"  th:text="${item.name}">
+<!--                                        Футболка <span>ABAY</span>-->
+                                    </div>
+                                    <div class="main-products__item-size">
+                                        Размер: M
+                                    </div>
+                                    <div class="main-products__amount-in-store">
+                                        В наличии: 5 шт
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-products__price-amount">
+                                <div class="main-products__price" th:text="${item.price}"></div>
+                                <div class="main-products__amount" th:text="${item.amount}"></div>
+                            </div>
+
+                            <button class="main-products__delete"><a th:href="@{'minusAmount?id='+${item.id}}">Удалить</a></button>
+                        </div>
+
+                    </li>
+
+<!--                    <li class="main-products__item">-->
+<!--                        <div class="main-products__card">-->
+
+<!--                            <div class="main-products__left">-->
+
+<!--                                <div class="main-products__img">-->
+<!--                                    <img src="img/item2.jpg" alt="product item image" class="img-fluid">-->
+<!--                                </div>-->
+
+<!--                                <div class="main-products__name-size">-->
+<!--                                    <div class="main-products__item-name">-->
+<!--                                        Футболка <span>ABAY</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="main-products__item-size">-->
+<!--                                        Размер: M-->
+<!--                                    </div>-->
+<!--                                    <div class="main-products__amount-in-store">-->
+<!--                                        В наличии: 5 шт-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="main-products__price-amount">-->
+<!--                                <div class="main-products__price">-->
+<!--                                    19.900 тг-->
+<!--                                </div>-->
+<!--                                <div class="main-products__amount">-->
+<!--                                    1 шт.-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <button class="main-products__delete" >Удалить</button>-->
+<!--                        </div>-->
+
+<!--                    </li>-->
+
+                </ul>
+                <div class="main-products__btn-wrap">
+                    <button class="main-products__order-btn" type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Оформить заказ</button>
+                    <span style="font-size: 18px; margin-left: 30px;">Общая сумма:<strong style="color: black"> <span th:text="${sum} + ${' тг'}"></span></strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--    <div class = "row mt-3">-->
+<!--        -->
+<!--        <div class = "col-sm-9">-->
+<!--            <div class="row">-->
+<!--                <div class="col-9">-->
+<!--                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">-->
+<!--                </div>-->
+<!--                <div class="col-3">-->
+<!--                    <button class="btn btn-success" type="submit" style="width: 180px">Search</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div class="card">-->
+<!--                <div class="card-header">-->
+<!--                    <h3> Basket</h3>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row"  >-->
+<!--                        <div class="col">-->
+<!--                            <table class = "table table-striped">-->
+<!--                                <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Item</th>-->
+<!--                                    <th>Price</th>-->
+<!--                                    <th>Amount</th>-->
+<!--                                    <th></th>-->
+<!--                                </tr>-->
+<!--                                </thead>-->
+<!--                                <tr th:each="item: ${session.basket}">-->
+<!--                                    <td th:text="${item.name}"></td>-->
+<!--                                    <td th:text="'$'+${item.price}"></td>-->
+<!--                                    <td th:text="${item.amount}"></td>-->
+<!--                                    <td>-->
+<!--                                        <a type="button" class="btn btn-success" th:href="@{'basketPage?id='+${item.id}}">+</a>-->
+<!--                                        <a type="button" class="btn btn-danger"  th:href="@{'minusAmount?id='+${item.id}}">-</a>-->
+
+<!--                                        <p></p>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+
+<!--                            </table>-->
+<!--                            <br>-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <span style="font-size: 18px">TOTAL:<strong style="color: black">$<span th:text="${sum}"></span></strong></span>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <button  class="btn btn-success" style="background-color: #122647;margin-left: 145px"  data-toggle="modal" data-target="#checkIn">CHECK IN</button>-->
+<!--                                    <a th:href="@{'clearBasket'}" type="button" class="btn btn-danger">CLEAR BASKET</a>-->
+<!--                                    <div class="modal fade" id="checkIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                                        <div class="modal-dialog">-->
+<!--                                            <div class="modal-content">-->
+<!--                                                <div class="modal-header">-->
+<!--                                                    <h5 class="modal-title" id="exampleModalLabel">Add new Device</h5>-->
+<!--                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                                        <span aria-hidden="true">&times;</span>-->
+<!--                                                    </button>-->
+<!--                                                </div>-->
+<!--                                                <div class="modal-body">-->
+<!--                                                    <form th:action="@{'/checkIn'}" method = "post">-->
+
+<!--                                                        <div class="form-row">-->
+<!--                                                            <div class="col">-->
+<!--                                                                <label  class="col-form-label">Full Name:</label>-->
+<!--                                                                <input type="text" class="form-control" name="full_name" >-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-row">-->
+<!--                                                            <div class="col">-->
+<!--                                                                <label  class="col-form-label">Card Number:</label>-->
+<!--                                                                <input type="text" class="form-control" name="card_number">-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="form-row">-->
+<!--                                                            <div class="col">-->
+<!--                                                                <label>Expiration(MM/YY):</label>-->
+<!--                                                                <input type="text" class="form-control" name="expiration">-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col">-->
+<!--                                                                <label>CVV:</label>-->
+<!--                                                                <input type="text" class="form-control" name="cvv">-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <br>-->
+<!--                                                        <div class="modal-footer">-->
+<!--                                                            <button type="submit" class="btn btn-success">Pay</button>-->
+<!--                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+<!--                                                        </div>-->
+<!--                                                    </form>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                           </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card-footer">-->
+<!--                    <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,(5)-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">-->
+<!--                    <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(5)-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--</div>-->
+<!--    </div>-->
+</div>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/admin_main.html">
+
+
+<div layout:fragment="main-content" style="margin-left: 0px">
+    <div class = "row">
+        <div class = "col-sm-3" style="background-color: #e9ecef;height: 800px">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p>ADMIN PANEL</p>
+                    <p><a href="/usersPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Пользователи</a></p>
+                    <p><a href="/rolesPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Роли</a></p>
+                    <p><a href="/adminPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Страны</a></p>
+                    <p><a href="/brand_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Коллекция</a></p>
+                    <p><a href="/item_page" sec:authorize="hasAnyRole('ROLE_MODERATOR','ROLE_ADMIN')">Товары</a></p>
+                    <p><a href="/category_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Категории</a></p>
+                    <p><a href="/size_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Размеры</a>
+                    <p><a href="/color_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Цвета</a>
+                    <p><a href="/banner_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Баннеры</a>
+                    <p><a href="/itemsBasket_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">История заказов</a></p>
+                </div>
+            </div>
+        </div>
+        <div class = "col-sm-9" style="background-color: white">
+            <div class="card"style="width: 900px;border: none;margin-top: 50px;">
+                <h5 class="card-header" style="background-color: white">Товары
+                    <button type="button" class="btn btn-primary btn-sm float-right ml-2" data-toggle="modal" data-target="#addItem"style="background-color: #122647 ">
+                        + Добавить
+                    </button>
+                    <div class="modal fade" id="addItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Добавить новый товар</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form th:action="@{'/add'}" method = "post">
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Наименование:</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Наименование...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-form-label">Состав:</label>
+                                            <textarea class="form-control" name ="compound" placeholder="Состав..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-form-label">Описание:</label>
+                                            <textarea class="form-control" name ="description" placeholder="Описание..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Цена:</label>
+                                            <input type="number" class="form-control" name="price">
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Количество в магазине:</label>
+                                            <input type="number" class="form-control" name="amount-shop">
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Количество на складе:</label>
+                                            <input type="number" class="form-control" name="amount-stock">
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Small Picture URL:</label>
+                                            <input type="text" class="form-control" name="small_url" placeholder="Picture URL...">
+                                        </div>
+<!--                                        <div class="form-group">-->
+<!--                                            <label  class="col-form-label">Large Picture URL:</label>-->
+<!--                                            <input type="text" class="form-control" name="large_url" placeholder="Picture URL...">-->
+<!--                                        </div>-->
+<!--                                        <div class = "form-group">-->
+<!--                                            <label  class="col-form-label">На главной странице:</label>-->
+<!--                                            <select name = "top" class = "form-control">-->
+<!--                                                <option>Да</option>-->
+<!--                                                <option>Нет</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+
+<!--                                        <div class = "form-group">-->
+<!--                                            <label  class="col-form-label">Бестселлер:</label>-->
+<!--                                            <select name = "best" class = "form-control">-->
+<!--                                                <option>Да</option>-->
+<!--                                                <option>Нет</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Коллекция:</label>
+                                            <select class = "form-control"name="brand_id" >
+                                                <option th:each="b:${brands}" th:text="${b.getName()} + ' / ' + ${b.getCountries().getName()}" th:value="${b.getId()}"></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary"style="background-color: #122647 ">Добавить</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Удалить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </h5>
+                <div class="card-body">
+                    <table class = "table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Наименование</th>
+                            <th>Цена</th>
+                            <th>Коллекция</th>
+                            <th>Количество в магазине</th>
+                            <th>Количество на складе</th>
+<!--                            <th>Коллекция</th>-->
+<!--                            <th>Коллекция</th>-->
+                            <th>Операции</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="sh:${shopItemss}">
+                            <td th:text="${sh.getId()}"></td>
+                            <td th:text="${sh.getName()}"></td>
+                            <td th:text="${sh.getPrice()}"></td>
+
+                            <td th:text="${sh.brands.name} + ' , ' +${sh.brands.countries.name}"></td>
+<!--                            <td> <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,sh.getStars()-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">-->
+<!--                                <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(sh.getStars())-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">-->
+<!--                            </td>-->
+                            <td th:text="${sh.getAmount_sh()}"></td>
+                            <td th:text="${sh.getAmount_st()}"></td>
+                            <td>
+                                <a th:href="@{'/details_items?id='+${sh.id}}" class="btn btn-secondary" style="background-color: #122647">Подробнее</a>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

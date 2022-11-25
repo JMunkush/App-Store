@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/admin_main.html">
+
+
+<div layout:fragment="main-content" style="margin-left: 0px">
+    <div class = "row">
+        <div class = "col-sm-3" style="background-color: #e9ecef;height: 800px">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p>ADMIN PANEL</p>
+                    <p><a href="/usersPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Пользователи</a></p>
+                    <p><a href="/rolesPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Роли</a></p>
+                    <p><a href="/adminPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Страны</a></p>
+                    <p><a href="/brand_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Коллекция</a></p>
+                    <p><a href="/item_page" sec:authorize="hasAnyRole('ROLE_MODERATOR','ROLE_ADMIN')">Товары</a></p>
+                    <p><a href="/category_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Категории</a></p>
+                    <p><a href="/size_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Размеры</a>
+                    <p><a href="/color_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Цвета</a>
+                    <p><a href="/banner_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Баннеры</a>
+                    <p><a href="/itemsBasket_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">История заказов</a></p>
+                </div>
+            </div>
+        </div>
+        <div class = "col-sm-9" style="background-color: white">
+            <div class="card"style="width: 900px;border: none;margin-top: 50px;">
+                <h5 class="card-header" style="background-color: white">Товары
+                </h5>
+                <div class="card-body">
+                    <form th:action="@{'/edit'}" method = "post">
+                        <input type="hidden" name="id" th:value="${item.getId()}">
+                        <div class="form-group">
+                            <label  class="col-form-label">Наименование:</label>
+                            <input type="text" class="form-control" name="name" th:value="${item.getName()}">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Описание:</label>
+                            <textarea class="form-control" name ="description" th:value="${item.getDescription()}" th:text="${item.getDescription()}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Состав:</label>
+                            <textarea class="form-control" name ="compound" th:value="${item.getCompound()}" th:text="${item.getCompound()}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Коллекция:</label>
+                            <select class="form-control" name ="brand_id" >
+                                <option th:each="br:${brands}" th:text="${br.name}+' / '+${br.countries.name}" th:value="${br.id}" th:selected="${br.id == item.brands.id}"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-form-label">Цена:</label>
+                            <input type="double" class="form-control" name="price" th:value="${item.getPrice()}">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-form-label">Количество в магазине:</label>
+                            <input type="int" class="form-control" name="amount_shop" th:value="${item.getAmount_sh()}">
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-form-label">Количество на сайте:</label>
+                            <input type="int" class="form-control" name="amount_stock" th:value="${item.getAmount_st()}">
+                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label  class="col-form-label">Stars:</label>-->
+<!--                            <input type="number" class="form-control" name="stars" min="0" max="5" th:value="${item.getStars()}">-->
+<!--                        </div>-->
+                        <div class="form-group">
+                            <label  class="col-form-label">Small Picture URL:</label>
+                            <input type="text" class="form-control" name="small_url" th:value="${item.getSmallPicURL()}">
+                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label  class="col-form-label">Large Picture URL:</label>-->
+<!--                            <input type="text" class="form-control" name="large_url" th:value="${item.getLargePicURL()}">-->
+<!--                        </div>-->
+<!--                        <div class = "form-group">-->
+<!--                            <label  class="col-form-label">На главной странице:</label>-->
+<!--                            <select name = "top" class = "form-control" th:value="${item.inTopPage}">-->
+<!--                                <option value="true" th:selected="${item.inTopPage}">Да</option>-->
+<!--                                <option value="false" th:selected="${!item.inTopPage}">Нет</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class = "form-group">-->
+<!--                            <label  class="col-form-label">Бестселлеры:</label>-->
+<!--                            <select name = "top" class = "form-control" th:value="${item.best}">-->
+<!--                                <option value="true" th:selected="${item.best}">Да</option>-->
+<!--                                <option value="false" th:selected="${!item.best}">Нет</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+<!--                        <div class = "form-group">-->
+<!--                            <label  class="col-form-label">Бестселлер:</label>-->
+<!--                            <select name = "top" class = "form-control" th:value="${item.inTopPage}">-->
+<!--                                <option value="true" th:selected="${item.inTopPage}">Да</option>-->
+<!--                                <option value="false" th:selected="${!item.inTopPage}">Нет</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary"style="background-color: #122647 ">Редактировать</button>
+                            <a th:href="@{'deleteItem?id='+${item.getId()}}" type="button" class="btn btn-danger" >Удалить</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <table class="table" style="width:900px;margin-bottom: 0px;">
+                        <tbody>
+                        <tr th:each="c : ${item.getCategories()}">
+                            <form th:action="@{'/deleteCategory'}" method="post">
+                                <input type="hidden" name="item_id" th:value="${item.id}">
+                                <input type="hidden" name="category_id" th:value="${c.id}">
+                                <td th:text="${c.name}"></td>
+                                <td width="10%">
+                                    <button type="submit" class="btn btn-danger"><img src="icons/minus.png"></button>
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" style="width:900px;margin-bottom: 0px;">
+                        <tbody>
+                        <tr th:each="c,index : ${categories}">
+                            <form th:action="@{'/assignedCategory'}" method="post" >
+                                <input type="hidden" name="item_id" th:value="${item.id}">
+                                <input type="hidden" name="category_id" th:value="${c.id}">
+                                <td th:text="${c.name}"></td>
+                                <td name="category" width="10%">
+                                    <button  th:value="${c.name}" class="btn btn-success"  type="submit" ><img src="icons/add.png"></button>
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h4>Фотографии</h4>
+                    <br>
+                    <table class="table" style="width:900px;margin-bottom: 0px;">
+                        <tbody>
+                        <thead>
+                        <tr>
+                            <th>Фото</th>
+                            <th>Ссылка</th>
+                            <th>Дата добавление</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tr th:each="p : ${pictures}" th:hidden="${p.item.id != item.id}">
+                            <form th:action="@{'/deletePicture'}" method="post">
+                                <input type="hidden" name="picture_id" th:value="${p.id}">
+                                <input type="hidden" name="item_id" th:value="${item.id}">
+                                <td><img th:if="${p.item.id == item.id}" style="width:50px;height: 50px;"th:src="@{'/viewphoto_item/'+${p.url}}"></td>
+                                <td th:if="${p.item.id == item.id}" th:text="${p.url}"></td>
+                                <td th:if="${p.item.id == item.id}" th:text="${p.added_Date}"></td>
+
+                                <td width="10%">
+                                    <button th:if="${p.item.id == item.id}" type="submit" class="btn btn-danger"><img src="icons/minus.png"></button>
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" style="width:900px;margin-bottom: 0px;">
+                        <tbody>
+                        <tr >
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td  width="10%">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example">
+                                    <img src="icons/add.png">
+                                </button>
+                            </td>
+                                <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Добавить фото</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                <form th:action="@{'/uploadPictureItem'}" method="post" enctype="multipart/form-data">
+                                                    <div class="custom-file">
+                                                        <input type="hidden" name="item_id" th:value="${item.id}">
+                                                        <input type="file" class="custom-file-input" name = "item_picture" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        <button style="margin-left: 340px" type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Закрыть</button>
+                                                        <button  class="btn btn-success mt-3">Добавить</button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

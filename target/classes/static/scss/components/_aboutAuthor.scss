@@ -1,0 +1,76 @@
+@import '../variables';
+
+.about-author {
+	padding: 25px 0 45px;
+
+	// .about-author__title
+	&__title {
+		margin: 0 0 40px 0;
+	}
+
+	// .about-author__row
+	&__row {
+	}
+
+	// .about-author__img
+	&__img {
+		height: 210px;
+	}
+
+	// .about-author__bttm
+	&__bttm {
+		padding: 25px 0 0 0;
+	}
+
+	// .about-author__txt
+	&__txt {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 150.4%;
+		margin: 0;
+
+		&:not(:last-of-type) {
+			margin: 0 0 30px 0;
+		}
+
+		// .about-author__txt_name
+		&_name {
+			font-weight: 600;
+			font-size: 20px;
+		}
+
+		// .about-author__txt_bold
+		&_bold {
+			font-weight: 600;
+			text-decoration: none;
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.about-author {
+		padding: 15px 0 60px;
+
+		// .about-author__img
+		&__img {
+			height: 440px;
+		}
+
+		// .about-author__bttm
+		&__bttm {
+			padding: 40px 0 0 0;
+		}
+
+		// .about-author__txt
+		&__txt {
+
+			&:not(:last-child) {
+				margin: 0 0 30px 0;
+			}
+
+			&:nth-child(-n+3) {
+				padding: 0 300px 0 0;
+			}
+		}
+	}
+}

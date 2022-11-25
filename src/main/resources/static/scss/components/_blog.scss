@@ -1,0 +1,170 @@
+@import '../variables';
+
+.blog {
+	padding: 30px 0 75px;
+
+	& > .container {
+		padding: 0 33px;
+	}
+
+	// .blog__swiper
+	&__swiper {
+		width: 100%;
+		height: auto;
+		padding: 0 0 40px 0;
+	}
+
+	&__btn {
+
+
+		&_next,
+		&_prev {
+			position: absolute;
+			bottom: 0;
+			font-size: 16px;
+			color: $grey100;
+			padding: 0 25px;
+			z-index: 6;
+			user-select: none;
+
+			&::before {
+				content: "\e900";
+				position: absolute;
+				top: 50%;
+				font-size: 20px;
+				font-family: 'icomoon';
+			}
+		}
+
+		&_prev {
+			left: 0;
+
+			&::before {
+				left: 0;
+				transform: translateY(-50%) rotateZ(90deg);
+			}
+		}
+
+		&_next {
+			right: 0;
+
+			&::before {
+				right: 0;
+				transform: translateY(-50%) rotateZ(-90deg);
+			}
+		}
+	}
+
+	// .blog__inner-wrap
+	// &__inner-wrap {
+	// }
+
+	// .blog__post
+	&__post {
+
+		&:not(:last-child) {
+			margin: 0 0 55px 0;
+		}
+	}
+
+	// .blog__img
+	&__img {
+		height: 295px;
+	}
+
+	// .blog__post-bttm
+	&__post-bttm {
+		width: 274 / 294 * 100%;
+		margin: -55px auto 0;
+		padding: 15px;
+		background: $white;
+		border: 1px solid $black;
+		border-radius: 20px;
+		position: relative;
+		z-index: 5;
+	}
+
+	// .blog__post-name
+	&__post-name {
+		font-weight: 600;
+		font-size: 18px;
+		margin: 0 0 5px 0;
+	}
+
+	// .blog__txt
+	&__txt {
+		margin: 0;
+		font-size: 14px;
+		line-height: 150.4%;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	
+	.blog {
+	
+		// .blog__inner-wrap
+		&__inner-wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		// .blog__img
+		&__img {
+			height: 350px;
+		}
+	
+		// .blog__post
+		&__post {
+			flex: 0 0 49%;
+	
+			&:not(:last-child) {
+				margin: 0;
+			}
+		}
+	}
+
+}
+
+@media screen and (min-width: 1040px) {
+	
+	.blog {
+
+		& > .container {
+			padding: 0 .75em;
+		}
+
+		// .blog__img
+		&__img {
+			height: 650px;
+		}
+
+		// .blog__post-bttm
+		&__post-bttm {
+			padding: 25px;
+			margin: -100px auto 0;
+			width: 545 / 588 * 100%;
+		}
+	
+		// .blog__post
+		&__post {
+			flex: 0 0 588 / 1190 * 100%;
+	
+			&:not(:last-child) {
+				margin: 0;
+			}
+		}
+
+		// .blog__post-name
+		&__post-name {
+			margin: 0 0 25px 0;
+		}
+
+		// .blog__txt
+		&__txt {
+			font-size: 16px;
+		}
+	}
+
+}

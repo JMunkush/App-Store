@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/admin_main.html">
+
+
+<div layout:fragment="main-content" style="margin-left: 0px">
+    <div class = "row">
+        <div class = "col-sm-3" style="background-color: #e9ecef;height: 800px">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p>ADMIN PANEL</p>
+                    <p><a href="/usersPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Пользователи</a></p>
+                    <p><a href="/rolesPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Роли</a></p>
+                    <p><a href="/adminPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Страны</a></p>
+                    <p><a href="/brand_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Коллекция</a></p>
+                    <p><a href="/item_page" sec:authorize="hasAnyRole('ROLE_MODERATOR','ROLE_ADMIN')">Товары</a></p>
+                    <p><a href="/category_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Категории</a></p>
+                    <p><a href="/size_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Размеры</a>
+                    <p><a href="/color_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Цвета</a>
+                    <p><a href="/banner_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Баннеры</a>
+                    <p><a href="/itemsBasket_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">История заказов</a></p>
+                </div>
+            </div>
+        </div>
+        <div class = "col-sm-9" style="background-color: white">
+            <div class="card"style="width: 900px;border: none;margin-top: 50px;">
+                <h5 class="card-header" style="background-color: white">Пользователи
+                    <button type="button" class="btn btn-primary btn-sm float-right ml-2" data-toggle="modal" data-target="#example"style="background-color: #122647 ">
+                        + Добавить
+                    </button>
+                    <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Добавить</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form th:action="@{'/addUser'}" method = "post">
+                                        <div class="form-group">
+                                            <label  class="col-form-label">ФИО:</label>
+                                            <input type="text" class="form-control" name="full_name" placeholder="ФИО..">
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Email:</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Email..">
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="col-form-label">Пароль:</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Пароль...">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary"style="background-color: #122647 ">Добавить</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Удалить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </h5>
+                <div class="card-body">
+                    <table class = "table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>EMAIL</th>
+                            <th>ФИО</th>
+                            <th>Роли</th>
+                            <th>Операция</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="u:${users}">
+
+                            <td th:text="${u.id}"></td>
+                            <td th:text="${u.email}"></td>
+                            <td th:text="${u.full_name}"></td>
+                            <td ><span th:each="r:${u.roles}" th:text="${r.name}" style="display: block"></span></td>
+                            <td>
+                                <a class="btn btn-success" style="background-color: #122647 "th:href="@{'userDetails?id='+${u.id}}">Подробнее</a> </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

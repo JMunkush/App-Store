@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+
+    <section class="how-order">
+        <div class="container">
+            <div class="how-order__inner-wrap d-flex flex-column">
+                <h6 class="how-order__txt" th:text="#{navbar.howorder}"></h6>
+
+                <div class="how-order__steps">
+                    <label class="how-order__steps-lbl" for="step1"></label>
+                    <input class="how-order__steps-inp" type="radio" name="steps" id="step1" checked>
+                    <div class="how-order__steps-body">
+                        <div class="how-order__steps-count" th:text="#{text.step1}"></div>
+                        <p class="how-order__steps-txt" th:text="#{text.step1.p1}">
+                        </p>
+                    </div>
+
+                    <label class="how-order__steps-lbl" for="step2"></label>
+                    <input class="how-order__steps-inp" type="radio" name="steps" id="step2">
+                    <div class="how-order__steps-body">
+                        <div class="how-order__steps-count">Шаг 2</div>
+                        <p class="how-order__steps-txt">
+                            Нажать кнопку «Добавить в <span>корзину</span>»
+                        </p>
+                    </div>
+
+                    <label class="how-order__steps-lbl" for="step3"></label>
+                    <input class="how-order__steps-inp" type="radio" name="steps" id="step3">
+                    <div class="how-order__steps-body">
+                        <div class="how-order__steps-count">Шаг 3</div>
+                        <p class="how-order__steps-txt">
+                            Заполнить все контактные данные во всплывающем окне.
+                            Если вы хотите связаться с менеджером, то поставьте галочку в поле <span>«хочу подтвердить заказ по телефону»</span>
+                        </p>
+                    </div>
+
+                    <label class="how-order__steps-lbl" for="step4"></label>
+                    <input class="how-order__steps-inp" type="radio" name="steps" id="step4">
+                    <div class="how-order__steps-body">
+                        <div class="how-order__steps-count">Шаг 4</div>
+                        <p class="how-order__steps-txt">
+                            Нажать на кнопку <span>«оформить заказ»</span>
+                        </p>
+                    </div>
+
+                    <label class="how-order__steps-lbl" for="step5"></label>
+                    <input class="how-order__steps-inp" type="radio" name="steps" id="step5">
+                    <div class="how-order__steps-body">
+                        <div class="how-order__steps-count">Шаг 5</div>
+                        <p class="how-order__steps-txt">
+                            Перейти на страницу оплаты, ввести <span>контактные данные и совершить оплату</span>
+                        </p>
+                    </div>
+                    <span class="circle"></span>
+                </div>
+
+                <a th:href="@{'tshirts'}" class="how-order__catalog-btn btn-border ">Каталог</a>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+</html>

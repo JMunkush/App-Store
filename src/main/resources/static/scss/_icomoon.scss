@@ -1,0 +1,55 @@
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../icomoon/icomoon.eot?e8pqnu');
+  src:  url('../icomoon/icomoon.eot?e8pqnu#iefix') format('embedded-opentype'),
+    url('../icomoon/icomoon.ttf?e8pqnu') format('truetype'),
+    url('../icomoon/icomoon.woff?e8pqnu') format('woff'),
+    url('../icomoon/icomoon.svg?e8pqnu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change ../icomoon */
+  font-family: 'icomoon' !important;
+  // speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down:before {
+  content: "\e900";
+}
+.icon-clock:before {
+  content: "\e901";
+}
+.icon-instagram:before {
+  content: "\e902";
+}
+.icon-map:before {
+  content: "\e903";
+}
+.icon-phone:before {
+  content: "\e904";
+}
+.icon-search:before {
+  content: "\e905";
+}
+.icon-telegram:before {
+  content: "\e906";
+}
+.icon-whatsapp:before {
+  content: "\e907";
+}
+.icon-shopping-cart:before {
+  content: "\e908";
+}

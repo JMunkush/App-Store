@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+
+    <section class="products products__catalog">
+
+        <div class="container px-0">
+
+            <h5 class="main-title text-center">Футболки</h5>
+
+            <div class="products__catalog-sort row justify-content-start gy-2 row-cols-auto">
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        По популярности
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort1">
+                                По популярности
+                                <input type="radio" name="sortPopularity" id="sort1" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort2">
+                                По возрастанию цены
+                                <input type="radio" name="sortPopularity" id="sort2">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort3">
+                                По убыванию цены
+                                <input type="radio" name="sortPopularity" id="sort3">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort4">
+                                По новинкам
+                                <input type="radio" name="sortPopularity" id="sort4">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Цвет
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort5">
+                                По популярности
+                                <input type="radio" name="sortByColor" id="sort5" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort6">
+                                По возрастанию цены
+                                <input type="radio" name="sortByColor" id="sort6">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort7">
+                                По убыванию цены
+                                <input type="radio" name="sortByColor" id="sort7">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort8">
+                                По новинкам
+                                <input type="radio" name="sortByColor" id="sort8">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Материалы
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort9">
+                                По популярности
+                                <input type="radio" name="sortByMaterial" id="sort9" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort10">
+                                По возрастанию цены
+                                <input type="radio" name="sortByMaterial" id="sort10">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort11">
+                                По убыванию цены
+                                <input type="radio" name="sortByMaterial" id="sort11">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort12">
+                                По новинкам
+                                <input type="radio" name="sortByMaterial" id="sort12">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Размер
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort13">
+                                По популярности
+                                <input type="radio" name="sortBySize" id="sort13" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort14">
+                                По возрастанию цены
+                                <input type="radio" name="sortBySize" id="sort14">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort15">
+                                По убыванию цены
+                                <input type="radio" name="sortBySize" id="sort15">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort16">
+                                По новинкам
+                                <input type="radio" name="sortBySize" id="sort16">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Цена
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort17">
+                                По популярности
+                                <input type="radio" name="sortByPrice" id="sort17" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort18">
+                                По возрастанию цены
+                                <input type="radio" name="sortByPrice" id="sort18">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort19">
+                                По убыванию цены
+                                <input type="radio" name="sortByPrice" id="sort19">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort20">
+                                По новинкам
+                                <input type="radio" name="sortByPrice" id="sort20">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown products__dropdown col">
+                    <button class="btn-border products__catalog-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Воротник
+                        <i class="icon-arrow-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <label for="sort21">
+                                По популярности
+                                <input type="radio" name="sortByPriceNeck" id="sort21" checked>
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort22">
+                                По возрастанию цены
+                                <input type="radio" name="sortByPriceNeck" id="sort22">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort23">
+                                По убыванию цены
+                                <input type="radio" name="sortByPriceNeck" id="sort23">
+                            </label>
+                        </li>
+                        <li class="dropdown-item">
+                            <label for="sort24">
+                                По новинкам
+                                <input type="radio" name="sortByPriceNeck" id="sort24">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h5 class="products__group-name px-1">
+                Футболки
+            </h5>
+
+            <div class="row gx-lg-5">
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt1.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt2.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt3.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt4.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt1.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt2.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt3.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt4.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt1.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt2.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt3.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="product-card__top mb-1">
+                        <img src="./img/tshirt4.jpg" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <div class="product-card__name d-flex justify-content-between align-items-center">
+                                Название
+                                <i class="icon-shopping-cart"></i>
+                            </div>
+                            <div class="product-card__price">15.000 тг</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+</html>
