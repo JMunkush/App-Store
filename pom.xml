@@ -108,7 +108,7 @@
 						<manifest>
 
 							<!-- указываем класс с методом main -->
-							<mainClass>springbootdemo.src.main.java.kz.springboot.springbootdemo.SpringbootdemoApplication.java</mainClass>
+							<mainClass>kz.springboot.springbootdemo.SpringbootdemoApplication</mainClass>
 
 							<!-- Указываем дополнительный каталог, который нужно включить в classpath -->
 							<addClasspath>true</addClasspath>
