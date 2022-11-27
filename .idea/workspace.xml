@@ -5,7 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dd29ded-cef7-4e24-a9ba-ec3ab85fd443" name="Default Changelist" comment="changed application.properties">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/local.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/LanguageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/LanguageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/impl/LanguageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootdemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootdemo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/beans/TestBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/db/DBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/db/ShopItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items_Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items_Basket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Pictures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Pictures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/BannerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/BannerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/BrandRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/BrandRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CountryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CountryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/Items_BasketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/Items_BasketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/PictureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/PictureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/RoleRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +67,12 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -80,6 +103,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,6 +203,7 @@
       <workItem from="1669183012212" duration="1409000" />
       <workItem from="1669389633957" duration="3715000" />
       <workItem from="1669393640536" duration="212000" />
+      <workItem from="1669538045958" duration="7899000" />
     </task>
     <servers />
   </component>

@@ -20,7 +20,7 @@ public class Pictures {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "url",length = 255)
+    @Column(name = "url", length = 255)
     private String url;
 
     @Column(name = "added_Date")

@@ -3,7 +3,6 @@ package kz.springboot.springbootdemo.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.apachecommons.CommonsLog;
 
 import javax.persistence.*;
 

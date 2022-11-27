@@ -127,8 +127,8 @@ public class HomeController {
     @PostMapping(value = "/edit_Category")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String editCategory(@RequestParam(name = "id")Long id,
-                                @RequestParam(name = "name")String name,
-                                @RequestParam(name = "logoURL")String url){
+                               @RequestParam(name = "name")String name,
+                               @RequestParam(name = "logoURL")String url){
         Categories category = itemService.getCategory(id);
         category.setName(name);
         category.setLogoURL(url);

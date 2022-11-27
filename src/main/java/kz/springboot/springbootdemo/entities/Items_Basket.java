@@ -19,9 +19,9 @@ public class Items_Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name",length = 255)
+    @Column(name = "name", length = 255)
     private String name;
-    @Column(name = "user_name",length = 255)
+    @Column(name = "user_name", length = 255)
     private String user_name;
     @Column(name = "amount")
     private int amount;
