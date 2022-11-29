@@ -7,9 +7,10 @@ import kz.springboot.springbootdemo.services.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -37,8 +38,14 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private BannerRepository bannerRepository;
 
-//    @Autowired
-//    private SizeRepository sizeRepository;
+    @Autowired
+    private SizeRepository sizeRepository;
+
+    @Autowired
+    private InTopPageItemsRepository inTopItemsRepository;
+
+    @Autowired
+    private BestSellerItemsRepository bestSellerItemsRepository;
 
     @Override
     public List<Items> findAllByNameLikeOrderByPriceDesc(String name) {
@@ -65,6 +72,21 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Items save(Items items) {
+
+        if(items.isBest()){
+            BestSellerItems bestSellerItems = new BestSellerItems();
+            bestSellerItems.setItems(Collections.singletonList(items));
+            bestSellerItems.setAddedDate(new Date());
+            bestSellerItemsRepository.save(bestSellerItems);
+        }
+
+        if(items.isInTopPage()){
+            InTopPageItems inTopPageItems = new InTopPageItems();
+            inTopPageItems.setItems(Collections.singletonList(items));
+            inTopPageItems.setAddedDate(new Date());
+            inTopItemsRepository.save(inTopPageItems);
+        }
+
         return itemRepository.save(items);
     }
 
@@ -209,25 +231,34 @@ public class ItemServiceImpl implements ItemService {
         bannerRepository.delete(banners);
     }
 
-//    @Override
-//    public List<Size> getAllSize() {
-//        return sizeRepository.findAll();
-//    }
-//
-//    @Override
-//    public Size getSize(Long id) {
-//        return sizeRepository.getOne(id);
-//    }
-//
-//    @Override
-//    public Size saveSize(Size size) {
-//        return sizeRepository.save(size);
-//    }
-//
-//    @Override
-//    public void deleteSize(Size size) {
-//        sizeRepository.delete(size);
-//    }
+    @Override
+    public List<Size> getAllSize() {
+        return sizeRepository.findAll();
+    }
+
+    @Override
+    public Size getSize(Long id) {
+        return sizeRepository.getOne(id);
+    }
+
+    @Override
+    public Size saveSize(Size size) {
+        Size sizeForDb = sizeRepository.findBySizeName(size.getSizeName());
+        if(sizeForDb == null && !size.getSizeName().equals("")){
+            sizeRepository.save(size);
+        }
+        return sizeRepository.save(size);
+    }
+
+    @Override
+    public void deleteSize(Size size) {
+        sizeRepository.delete(size);
+    }
+
+    @Override
+    public List<BestSellerItems> getAllBestSellerItems() {
+        return bestSellerItemsRepository.findAll();
+    }
 
 
 }

@@ -62,5 +62,11 @@ public class Items {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Categories> categories;
 
+    @OneToMany
+    private List<Size> sizes;
+
+    @Enumerated(EnumType.STRING)
+    private LocalType locale;
+
 
 }

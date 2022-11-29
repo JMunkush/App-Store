@@ -57,9 +57,11 @@ public interface ItemService {
     Banners saveBanner(Banners banners);
     void deleteBanner(Banners banners);
 
-//    List<Size> getAllSize();
-//    Size getSize(Long id);
-//    Size saveSize(Size size);
-//    void deleteSize(Size size);
+    List<Size> getAllSize();
+    Size getSize(Long id);
+    Size saveSize(Size size);
+    void deleteSize(Size size);
+
+    List<BestSellerItems> getAllBestSellerItems();
 
 }

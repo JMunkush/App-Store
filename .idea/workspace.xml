@@ -5,7 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dd29ded-cef7-4e24-a9ba-ec3ab85fd443" name="Default Changelist" comment="changed application.properties">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/BestSellerItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/InTopPageItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/LocalType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Size.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/BestSellerItemsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/InTopPageItemsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/SizeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bestsellers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bestsellers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/item_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/item_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/Controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/Controllers/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/SpringbootdemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/SpringbootdemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/Items.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/Items.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/item_pictures/243f0767722be54afca03f0a445b86a3b551f7b7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/item_pictures/321138def75e56fc13ca3ad8ec28a9390ac91be3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/item_pictures/3a27ed966543a6a718d05e529c041c8b7995083f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/item_pictures/8cfdc308144c4f90b00c3c99ebe473f5e336b1fe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/item_pictures/e57349b28468d2a1564c884c18601fa0537a3538.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/bestsellers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/bestsellers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +44,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -47,7 +76,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -169,6 +198,11 @@
       <workItem from="1669183012212" duration="1409000" />
       <workItem from="1669389633957" duration="3715000" />
       <workItem from="1669393640536" duration="212000" />
+      <workItem from="1669551218002" duration="5301000" />
+      <workItem from="1669559931336" duration="57000" />
+      <workItem from="1669561749238" duration="4231000" />
+      <workItem from="1669671769711" duration="13000" />
+      <workItem from="1669730957933" duration="1952000" />
     </task>
     <servers />
   </component>

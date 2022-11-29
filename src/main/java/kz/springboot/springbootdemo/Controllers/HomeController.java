@@ -95,7 +95,13 @@ public class HomeController {
 
     @GetMapping(value = "/bestsellers")
     public String bestsellers(Model model, HttpServletRequest request){
-        model.addAttribute("currentUser",getUserData());
+
+        // все бестселлер айтемы [
+        List<BestSellerItems> bestSellerItems = itemService.getAllBestSellerItems();
+        model.addAttribute("bestSellerItems", bestSellerItems);
+        // ]
+
+        model.addAttribute("currentUser", getUserData());
         List<Items> items = itemService.getAll();
         List<Countries> countries = itemService.getAllCountries();
         HttpSession session = request.getSession();
@@ -111,7 +117,7 @@ public class HomeController {
         List<Brands> brands = itemService.getAllBrands();
         model.addAttribute("brands",brands);
         model.addAttribute("countries",countries);
-        model.addAttribute("shopItems",items);
+//        model.addAttribute("shopItems",items);
 
         return "bestsellers";
     }
@@ -191,48 +197,48 @@ public class HomeController {
         return "redirect:/";
     }
 
-//    @PostMapping(value = "/addSize")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-//    public String addSize(@RequestParam(name = "size_name")String name) {
-//        itemService.saveSize(new Size(null,name));
-//        return "redirect:/size_page";
-//    }
-//
-//    @GetMapping(value = "/size_page")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-//    public String size(Model model){
-//        List<Size> sizes = itemService.getAllSize();
-//        model.addAttribute("currentUser",getUserData());
-//        model.addAttribute("sizes",sizes);
-//        return "size_page";
-//    }
-//
-//    @PostMapping(value = "/deleteSize")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-//    public String deleteSize(@RequestParam(name = "item_id")Long item_id,
-//                                 @RequestParam(name = "size_id")Long size_id){
-//        Size size = itemService.getSize(size_id);
-//        if(size != null) {
-//            Items item = itemService.get(item_id);
-//            if (item != null) {
-//                List<Size> sizes = item.getSizes();
-//                sizes.remove(size);
-//                itemService.save(item);
-//                return "redirect:/details_items?id="+item_id;
-//            }
-//        }
-//        return "redirect:/";
-//    }
-//
-//    @PostMapping(value = "/edit_Size")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-//    public String editSize(@RequestParam(name = "id")Long id,
-//                               @RequestParam(name = "name")String name){
-//        Size size = itemService.getSize(id);
-//        size.setName(name);
-//        itemService.saveSize(size);
-//        return "redirect:/size_page";
-//    }
+    @PostMapping(value = "/addSize")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public String addSize(@RequestParam(name = "size_name")String name) {
+        itemService.saveSize(new Size(name));
+        return "redirect:/size_page";
+    }
+
+    @GetMapping(value = "/size_page")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public String size(Model model){
+        List<Size> sizes = itemService.getAllSize();
+        model.addAttribute("currentUser", getUserData());
+        model.addAttribute("sizes", sizes);
+        return "size_page";
+    }
+
+    @PostMapping(value = "/deleteSize")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+    public String deleteSize(@RequestParam(name = "item_id")Long item_id,
+                                 @RequestParam(name = "size_id")Long size_id){
+        Size size = itemService.getSize(size_id);
+        if(size != null) {
+            Items item = itemService.get(item_id);
+            if (item != null) {
+                List<Size> sizes = item.getSizes();
+                sizes.remove(size);
+                itemService.save(item);
+                return "redirect:/details_items?id="+item_id;
+            }
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/edit_Size")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public String editSize(@RequestParam(name = "id")Long id,
+                               @RequestParam(name = "name")String name){
+        Size size = itemService.getSize(id);
+        size.setSizeName(name);
+        itemService.saveSize(size);
+        return "redirect:/size_page";
+    }
 
     @GetMapping(value = "/deleteItem")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -432,13 +438,14 @@ public class HomeController {
                         @RequestParam(name = "name")String name,
                         @RequestParam(name = "description")String description,
                         @RequestParam(name = "price")double price,
-//                        @RequestParam(name = "amount-shop")int amount_sh,
-//                        @RequestParam(name = "amount-stock")int amount_st,
+                        @RequestParam(name = "amount-shop")int amount_sh,
+                        @RequestParam(name = "amount-stock")int amount_st,
                         @RequestParam(name = "compound")String compound,
-//                        @RequestParam(name = "top")boolean top,
-//                        @RequestParam(name = "best")boolean best,
-                        @RequestParam(name = "small_url")String small_url){
-        model.addAttribute("currentUser",getUserData());
+                        @RequestParam(name = "top") boolean top,
+                        @RequestParam(name = "best") boolean best,
+                        @RequestParam(name = "small_url") String small_url){
+        model.addAttribute("currentUser", getUserData());
+
         Items items = itemService.get(id);
         Brands brands = itemService.getBrand(brand_id);
         items.setName(name);
@@ -446,11 +453,11 @@ public class HomeController {
         items.setBrands(brands);
         items.setPrice(price);
         items.setCompound(compound);
-//        items.setInTopPage(top);
-//        items.setBest(best);
+        items.setInTopPage(top);
+        items.setBest(best);
         items.setSmallPicURL(small_url);
-//        items.setAmount_sh(amount_sh);
-//        items.setAmount_st(amount_st);
+        items.setAmount_sh(amount_sh);
+        items.setAmount_st(amount_st);
         itemService.save(items);
         return "redirect:/item_page";
     }
