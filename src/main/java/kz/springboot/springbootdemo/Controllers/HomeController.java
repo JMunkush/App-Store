@@ -4,6 +4,7 @@ import kz.springboot.springbootdemo.entities.*;
 
 import kz.springboot.springbootdemo.services.ItemService;
 import kz.springboot.springbootdemo.services.UserService;
+import kz.springboot.springbootdemo.services.impl.LanguageServiceImpl;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,9 @@ import java.util.stream.Collectors;
 public class HomeController {
 
     @Autowired
+    private LanguageServiceImpl languageService;
+
+    @Autowired
     private ItemService itemService;
 
     @Autowired
@@ -69,6 +73,7 @@ public class HomeController {
 
     @Value("target/classes/static/item_pictures/")
     private String uploadPath_pictures;
+
 
     @GetMapping(value = "/")
 //    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN','ROLE_MODERATOR')")
