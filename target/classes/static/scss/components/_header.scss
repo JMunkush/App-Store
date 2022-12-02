@@ -81,7 +81,7 @@
 		&::before {
 			top: 0;
 		}
-		
+
 		&::after {
 			bottom: 0;
 		}
@@ -215,7 +215,7 @@
 		border: none;
 		font-size: inherit;
 		font-weight: inherit;
-		
+
 		&:hover {
 			color: $hoverBlue;
 		}
@@ -225,7 +225,6 @@
 	&__sublist {
 		display: none;
 		padding: 7px 0;
-
 	}
 
 	// .head-nav-bttm__subitem
@@ -237,21 +236,17 @@
 		&:not(:last-child) {
 			margin: 0 0 15px 0;
 		}
-		
+
 	}
 
 	&__sublink {
 		text-decoration: none;
 		display: block;
 		transition: all .2s linear;
-		
+
 		&:hover {
 			color: $hoverBlue;
 		}
-	}
-
-	.head-nav-bttm__sublist {
-		z-index: 99;
 	}
 }
 

@@ -32,14 +32,14 @@ public class Items {
     @Column(name = "price")
     private double price;
 
-//    @Column(name = "stars")
-//    private int stars;
+    @Column(name = "stars")
+    private int stars;
 
-    @Column(name = "small_picurl",length = 255)
+    @Column(name = "small_picurl", length = 1024)
     private String smallPicURL;
 
-//    @Column(name = "large_picurl",length = 255)
-//    private String largePicURL;
+    @Column(name = "large_picurl", length = 1024)
+    private String largePicURL;
 
     @Column(name = "added_Date")
     private Date addedDate;

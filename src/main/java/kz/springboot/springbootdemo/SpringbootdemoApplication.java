@@ -1,15 +1,22 @@
 package kz.springboot.springbootdemo;
 
 import kz.springboot.springbootdemo.entities.Language;
+import kz.springboot.springbootdemo.entities.Roles;
 import kz.springboot.springbootdemo.entities.Size;
+import kz.springboot.springbootdemo.entities.Users;
+import kz.springboot.springbootdemo.repositories.RoleRepository;
 import kz.springboot.springbootdemo.repositories.SizeRepository;
+import kz.springboot.springbootdemo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
@@ -17,12 +24,31 @@ import java.util.jar.Manifest;
 public class SpringbootdemoApplication {
 	@Autowired
 	SizeRepository sizeRepository;
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	@Autowired
+	RoleRepository roleRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootdemoApplication.class, args);
 	}
 	@Bean
+	@Transactional
 	public CommandLineRunner commandLineRunner(){
 		return args -> {
+
+			Users users = new Users();
+			users.setEmail("test@gmail.com");
+			Roles roles = new Roles();
+			roles.setName("ROLE_USER");
+			roles.setName("ROLE_ADMIN");
+			users.setRoles(Collections.singletonList(roles));
+			users.setFull_name("AdminName");
+			users.setPassword(passwordEncoder.encode("test"));
+
+			userRepository.save(users);
+
 			Size size = new Size("S");
 			Size size1 = new Size("M");
 			Size size2 = new Size("L");

@@ -63,5 +63,6 @@ public interface ItemService {
     void deleteSize(Size size);
 
     List<BestSellerItems> getAllBestSellerItems();
+    List<InTopPageItems> getAllIntTopPageItems();
 
 }

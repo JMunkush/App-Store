@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.Date;
@@ -71,18 +72,19 @@ public class ItemServiceImpl implements ItemService {
     public void delete(Long id) {itemRepository.deleteById(id);}
 
     @Override
+    @Transactional
     public Items save(Items items) {
 
         if(items.isBest()){
             BestSellerItems bestSellerItems = new BestSellerItems();
-            bestSellerItems.setItems(Collections.singletonList(items));
+            bestSellerItems.setItems(items);
             bestSellerItems.setAddedDate(new Date());
             bestSellerItemsRepository.save(bestSellerItems);
         }
 
         if(items.isInTopPage()){
             InTopPageItems inTopPageItems = new InTopPageItems();
-            inTopPageItems.setItems(Collections.singletonList(items));
+            inTopPageItems.setItems(items);
             inTopPageItems.setAddedDate(new Date());
             inTopItemsRepository.save(inTopPageItems);
         }
@@ -258,6 +260,11 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<BestSellerItems> getAllBestSellerItems() {
         return bestSellerItemsRepository.findAll();
+    }
+
+    @Override
+    public List<InTopPageItems> getAllIntTopPageItems() {
+        return inTopItemsRepository.findAll();
     }
 
 

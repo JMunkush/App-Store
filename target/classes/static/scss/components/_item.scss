@@ -8,8 +8,8 @@
 	}
 
 	// .item__inner-wrap
-	&__inner-wrap {
-	}
+	// &__inner-wrap {
+	// }
 
 	// .item__images
 	&__images {
@@ -34,6 +34,10 @@
 
 	// .item__images-img
 	&__images-img {
+		margin: 0 auto;
+		width: 90%;
+		max-height: 480px;
+
 		& > .img-fluid {
 			height: 100%;
 		}
@@ -132,7 +136,7 @@
 		padding: 0 15px;
 		cursor: pointer;
 		transition: all .3s linear;
-		
+
 		&:hover {
 			color: $hoverBlue;
 		}
@@ -194,25 +198,42 @@
 		font-size: 16px;
 		line-height: 150.4%;
 	}
+
+	&__slider-top {
+		margin: 0 0 10px 0;
+	}
+
+	&__images {
+
+		& > .swiper {
+
+			& > .swiper-button-prev,
+			& > .swiper-button-next {
+				&::after {
+					font-size: 25px;
+					color: $darkGrey;
+				}
+			}
+
+			& > .swiper-button-prev {
+
+				left: 0;
+			}
+			& > .swiper-button-next {
+				right: 0;
+			}
+		}
+	}
 }
 
 @media screen and (min-width: 576px) {
 	.item {
 		// .item__images
 		&__images {
-	
-			& > .row:first-child {
+			& .item__images-img {
+				width: 60%;
+			}
 
-				& .item__images-img {
-					height: 220px;
-				}
-			}
-			& > .row:nth-child(2) {
-				& .item__images-img {
-					height: 140px;
-				}
-			}
-	
 		}
 	}
 }
@@ -221,19 +242,10 @@
 	.item {
 		// .item__images
 		&__images {
-	
-			& > .row:first-child {
+			& .item__images-img {
+				width: 50%;
+			}
 
-				& .item__images-img {
-					height: 400px;
-				}
-			}
-			& > .row:nth-child(2) {
-				& .item__images-img {
-					height: 240px;
-				}
-			}
-	
 		}
 	}
 }
@@ -243,7 +255,7 @@
 		& > .container {
 			padding: 0 .25em;
 		}
-	
+
 		// .item__inner-wrap
 		&__inner-wrap {
 			display: flex;
@@ -254,21 +266,19 @@
 
 		// .item__images
 		&__images {
+			min-width: 0;
 			flex: 60%;
-	
-			& > .row:first-child {
 
-				& .item__images-img {
-					max-height: 406px;
+			& > .swiper {
+
+				& > .swiper-button-prev {
+					left: 15%;
+				}
+				& > .swiper-button-next {
+					right: 15%;
 				}
 			}
 
-			& > .row:nth-child(2) {
-				& .item__images-img {
-					max-height: 270px;
-				}
-			}
-	
 		}
 
 		// .item__info

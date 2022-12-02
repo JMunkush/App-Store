@@ -19,7 +19,7 @@ function searchOpen() {
 }
 
 function menuOpen() {
-	
+
 	const menuIcon = document.querySelector('#menuIcon')
 	const headNavBttm = document.querySelector('.head-nav-bttm')
 
@@ -35,7 +35,7 @@ function menuOpen() {
 
 function blogSwiperInit() {
 	if (!Swiper) {
-		return 
+		return
 	}
 
 	const swiper = new Swiper('.blog__swiper', {
@@ -50,12 +50,81 @@ function blogSwiperInit() {
 
 function homeSwiperInit() {
 	if (!Swiper) {
-		return 
+		return
 	}
-	
+
 	const swiper = new Swiper('.promo-slider', {
 
 		loop: true,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+}
+
+function abAuthorSwiperInit() {
+	if (!Swiper) {
+		return
+	}
+
+	const swiper = new Swiper('.about-author__slider', {
+
+		loop: true,
+		spaceBetween: 10,
+		slidesPerView: 3,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		breakpoints: {
+			// when window width is >= 320px
+			620: {
+				slidesPerView: 4,
+			},
+			768: {
+				slidesPerView: 5,
+			},
+		}
+	});
+}
+
+function collabSwiperInit() {
+	if (!Swiper) {
+		return
+	}
+
+	const swiper = new Swiper('.collab__row', {
+
+		loop: true,
+		spaceBetween: 10,
+		slidesPerView: 3,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		breakpoints: {
+			// when window width is >= 320px
+			620: {
+				slidesPerView: 4,
+			},
+			1040: {
+				slidesPerView: 4,
+				spaceBetween: 24,
+			},
+		}
+	});
+}
+
+function itemSwiperInit() {
+	if (!Swiper) {
+		return
+	}
+
+	const swiper = new Swiper('.item__slider-top', {
+		loop: true,
+		spaceBetween: 10,
+		slidesPerView: 1,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -82,7 +151,7 @@ function counterItem() {
 		}
 		else if (ev.target.classList.contains('item__info-counter-btn_decrement')) {
 			counterNum++
-		} 
+		}
 		else {
 			return
 		}
@@ -96,8 +165,8 @@ function counterItem() {
 
 function supportModalTxtInit() {
 	const supportModalSubmitBtn = document.querySelector('.modal-card__submit-btn')
-	const supportModalTxt= document.querySelector('.support-modal-txt')
-	const bodyEl= document.querySelector('body')
+	const supportModalTxt = document.querySelector('.support-modal-txt')
+	const bodyEl = document.querySelector('body')
 
 	supportModalSubmitBtn.addEventListener('click', () => {
 		addDelClass(supportModalTxt, 'support-modal-txt')
@@ -110,7 +179,7 @@ function supportModalTxtInit() {
 	})
 }
 
-function colorChangeItemInit () {
+function colorChangeItemInit() {
 
 	const imgUrlsList = [
 		{
@@ -136,7 +205,7 @@ function colorChangeItemInit () {
 
 	itemColorsList.addEventListener('click', ev => {
 		const colorValue = ev.target.dataset.color
-	
+
 		imgUrlsList.forEach(i => {
 			if (i.itemColor === colorValue) {
 				itemImgsList.forEach((k, idx) => {
@@ -154,5 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	blogSwiperInit()
 	counterItem()
 	supportModalTxtInit()
-	colorChangeItemInit()
+	// colorChangeItemInit()
+	abAuthorSwiperInit()
+	collabSwiperInit()
+	itemSwiperInit()
 })

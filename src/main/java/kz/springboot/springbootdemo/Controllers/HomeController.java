@@ -79,7 +79,7 @@ public class HomeController {
 //    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN','ROLE_MODERATOR')")
     public String index(Model model, HttpServletRequest request){
         model.addAttribute("currentUser", getUserData());
-        List<Items> items = itemService.getAll();
+        List<InTopPageItems> inTopPageItems = itemService.getAllIntTopPageItems();
         List<Countries> countries = itemService.getAllCountries();
         HttpSession session = request.getSession();
         List<Items_Basket> items_basket = (List<Items_Basket>) session.getAttribute("basket");
@@ -94,7 +94,7 @@ public class HomeController {
         List<Brands> brands = itemService.getAllBrands();
         model.addAttribute("brands",brands);
         model.addAttribute("countries",countries);
-        model.addAttribute("shopItems",items);
+        model.addAttribute("shopItems",inTopPageItems);
         return "index";
     }
 
@@ -103,6 +103,7 @@ public class HomeController {
 
         // все бестселлер айтемы [
         List<BestSellerItems> bestSellerItems = itemService.getAllBestSellerItems();
+        System.out.println(bestSellerItems);
         model.addAttribute("bestSellerItems", bestSellerItems);
         // ]
 
@@ -363,7 +364,7 @@ public class HomeController {
     @GetMapping(value = "/adminPage")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     public String admin(Model model){
-        model.addAttribute("currentUser",getUserData());
+        model.addAttribute("currentUser", getUserData());
         List<Countries> countries = itemService.getAllCountries();
         List<Brands> brands = itemService.getAllBrands();
         model.addAttribute("brands",brands);
@@ -469,18 +470,19 @@ public class HomeController {
 
     @GetMapping(value = "/search")
     public String search(Model model,
-                          @RequestParam(name = "search_name",defaultValue = " ")String search_name){
-        model.addAttribute("currentUser",getUserData());
+                          @RequestParam(name = "search", defaultValue = " ") String search_name){
+
+        model.addAttribute("currentUser", getUserData());
         List<Brands> brands = itemService.getAllBrands();
         List<Items> items = itemService.findAllByNameLikeOrderByPriceDesc(search_name);
-        model.addAttribute("brands",brands);
-        model.addAttribute("items",items);
-        model.addAttribute("search_name",search_name);
+        model.addAttribute("brands", brands);
+        model.addAttribute("items", items);
+        model.addAttribute("search_name", search_name);
         return "search";
     }
 
     @GetMapping(value = "/details")
-    public String details(Model model,HttpServletRequest request,@RequestParam(name = "id")Long id){
+    public String details(Model model, HttpServletRequest request, @RequestParam(name = "id") Long id){
         model.addAttribute("currentUser",getUserData());
         Items item = itemService.get(id);
         List<Brands> brands = itemService.getAllBrands();
@@ -508,19 +510,22 @@ public class HomeController {
 
     @PostMapping(value = "/add")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-    public String add(Model model, @RequestParam(name = "name")String name,
-                       @RequestParam(name = "description")String description,
-                       @RequestParam(name = "price")double price,
-//                       @RequestParam(name = "top")boolean top,
+    public String add(Model model, @RequestParam(name = "name") String name,
+                       @RequestParam(name = "description") String description,
+                       @RequestParam(name = "price") double price,
+                       @RequestParam(name = "top") String top,
                        @RequestParam(name = "small_url")String small_url,
-//                       @RequestParam(name = "amount-shop")int amount_sh,
-//                       @RequestParam(name = "amount-stock")int amount_st,
-                       @RequestParam(name = "compound")String compound,
-//                       @RequestParam(name = "best")boolean best,
-                       @RequestParam(name = "brand_id")Long brand_id) {
-        model.addAttribute("currentUser",getUserData());
+                       @RequestParam(name = "amount-shop") int amount_sh,
+                       @RequestParam(name = "amount-stock") int amount_st,
+                       @RequestParam(name = "compound") String compound,
+                       @RequestParam(name = "best") String best,
+                       @RequestParam(name = "brand_id") Long brand_id
+    ) {
+
+        model.addAttribute("currentUser", getUserData());
+        System.out.println(brand_id);
         Brands brand = itemService.getBrand(brand_id);
-        if(brand != null) {
+//        if(brand != null) {
             Items items = new Items();
             items.setName(name);
             items.setDescription(description);
@@ -528,13 +533,17 @@ public class HomeController {
             items.setAddedDate(Date.valueOf(LocalDate.now()));
             items.setBrands(brand);
             items.setPrice(price);
-//            items.setAmount_sh(amount_sh);
-//            items.setAmount_st(amount_st);
-//            items.setInTopPage(top);
-//            items.setBest(best);
+            items.setAmount_sh(amount_sh);
+            items.setAmount_st(amount_st);
+
+        System.out.println(top.equals("Да"));
+        System.out.println(best.equals("Да"));
+
+            items.setInTopPage(top.equals("Да"));
+            items.setBest(best.equals("Да"));
             items.setSmallPicURL(small_url);
            itemService.save(items);
-        }
+//        }
         return "redirect:/item_page";
     }
 

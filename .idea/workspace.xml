@@ -5,8 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dd29ded-cef7-4e24-a9ba-ec3ab85fd443" name="Default Changelist" comment="changed application.properties">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Language.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/repositories/LanguageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scss/_header-media.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootdemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootdemo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/Controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/SpringbootdemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/BestSellerItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/BestSellerItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/InTopPageItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/InTopPageItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/LocalType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/LocalType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/entities/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/_fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/_icomoon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/_icomoon.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_404.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_404.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_aboutAuthor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_aboutAuthor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_blog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_collab.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_collab.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_contacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_contacts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_how-order.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_how-order.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_item.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_item.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_main-products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_main-products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_promo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_promo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scss/components/_recomendation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scss/components/_recomendation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/aboutAuthor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/aboutAuthor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bestsellers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bestsellers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/collab.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/collab.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/item_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/item_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/Controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/Controllers/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/SpringbootdemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/SpringbootdemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/BestSellerItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/BestSellerItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/InTopPageItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/InTopPageItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/Items.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/entities/Items.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/springboot/springbootdemo/services/impl/ItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/script.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/_fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/_icomoon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/_icomoon.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_404.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_404.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_aboutAuthor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_aboutAuthor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_blog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_collab.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_collab.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_contacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_contacts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_how-order.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_how-order.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_item.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_item.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_main-products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_main-products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_promo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_promo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/scss/components/_recomendation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/scss/components/_recomendation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/aboutAuthor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/aboutAuthor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/bestsellers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/bestsellers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/collab.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/collab.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/item_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/item_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +91,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Enum" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -47,6 +123,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -54,22 +131,22 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\avatars" />
-      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources" />
-      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\icons" />
-      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\templates" />
-      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\templates\layout" />
       <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\templates" />
       <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources" />
       <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\static" />
       <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\item_pictures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\scss" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\js" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\css" />
+      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\avatars" />
+      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringbootdemoApplication">
@@ -86,13 +163,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,6 +266,7 @@
       <workItem from="1669561749238" duration="4231000" />
       <workItem from="1669671769711" duration="13000" />
       <workItem from="1669730957933" duration="2307000" />
+      <workItem from="1669998328326" duration="22798000" />
     </task>
     <servers />
   </component>

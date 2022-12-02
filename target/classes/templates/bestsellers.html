@@ -16,22 +16,22 @@
 <!--                        Плакаты-->
 <!--                    </h5>-->
                     <div class="row gx-lg-5">
-                        <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3" th:each="st:${BestSellerItems}">
+                        <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3" th:each="st:${bestSellerItems}">
                             <div class="product-card__top mb-1">
 <!--                                <img th:src="${st.getSmallPicURL()}" alt="product image" class="img-fluid">-->
-                                    <img th:src="${st.getItem().getSmallPicURL()}" alt="product image" class="img-fluid">
+                                    <img th:src="${st.getItems().getSmallPicURL()}" alt="product image" class="img-fluid">
                             </div>
                             <div class="product-card__bttm">
                                 <div class="product-card__info">
 <!--                                    <a th:href="@{'details?id='+${st.getId()}}">-->
-                                    <a th:href="@{'details?id='+${st.getItem().getId()}}">
+                                    <a th:href="@{'details?id='+${st.getItems().getId()}}">
                                         <div class="product-card__name d-flex justify-content-between align-items-center">
 <!--                                            <h4 th:text="${st.name}"></h4>-->
-                                            <h4 th:text="${st.getItem().getName()}"></h4>
+                                            <h4 th:text="${st.getItems().getName()}"></h4>
                                         </div>
                                     </a>
 <!--                                    <div class="product-card__price"><h5 th:text="${st.getPrice()}"></h5></div>-->
-                                    <div class="product-card__price"><h5 th:text="${st.getItem().getPrice()}"></h5></div>
+                                    <div class="product-card__price"><h5 th:text="${st.getItems().getPrice()}"></h5></div>
 
                                     <i class="icon-shopping-cart"></i>
                                 </div>

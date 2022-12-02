@@ -160,24 +160,24 @@
 
 	.how-order {
 		padding: 90px 0 200px;
-	
+
 		& > .container {
 			padding: 0 .75rem;
 		}
-	
+
 		// .how-order__inner-wrap
 		&__inner-wrap {
 			flex-direction: row !important;
 			justify-content: space-between;
 			align-items: flex-start;
 		}
-	
+
 		// .how-order__txt
 		&__txt {
 			margin: 0;
 			font-size: 20px;
 		}
-	
+
 		// .how-order__steps
 		&__steps {
 			padding: 130px 0 0 0;
@@ -190,7 +190,7 @@
 			padding: 130px 0 0 0;
 			width: 140%;
 		}
-	
+
 		// .how-order__steps-inp
 		&__steps-inp {
 
@@ -220,7 +220,7 @@
 				left: 660px;
 			}
 		}
-	
+
 		// .how-order__steps-lbl
 		&__steps-lbl {
 
@@ -244,7 +244,7 @@
 				top: 5px;
 				left: 660px;
 			}
-	
+
 			&::after {
 				bottom: 50%;
 				left: 100%;
@@ -252,24 +252,24 @@
 				height: 3px;
 				width: 115px;
 			}
-	
+
 			&:last-of-type::after {
 				display: none;
 			}
-	
+
 		}
-	
+
 		// .how-order__steps-count
 		&__steps-count {
 			font-size: 25px;
 		}
-	
+
 		// .how-order__steps-txt
 		&__steps-txt {
 			font-size: 18px;
 			line-height: 22px;
 		}
-	
+
 		// .how-order__catalog-btn
 		&__catalog-btn {
 			margin: 0;

@@ -125,7 +125,7 @@
                             <td th:text="${sh.getName()}"></td>
                             <td th:text="${sh.getPrice()}"></td>
 
-                            <td th:text="${sh.brands.name} + ' , ' +${sh.brands.countries.name}"></td>
+                            <td th:text="${sh.getBrands().getName()} + ' , ' +${sh.getBrands().getCountries().getName()}"></td>
 <!--                            <td> <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,sh.getStars()-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">-->
 <!--                                <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(sh.getStars())-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">-->
 <!--                            </td>-->

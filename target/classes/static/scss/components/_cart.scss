@@ -116,12 +116,12 @@
 
 	&__order-btn {
 		padding: 0.25em 1.5em;
-    font-weight: 600;
-    font-size: 16px;
-    color: $white;
-    background: $black;
-    border-radius: 15px;
-    transition: all 0.3s linear;
+		font-weight: 600;
+		font-size: 16px;
+		color: $white;
+		background: $black;
+		border-radius: 15px;
+		transition: all 0.3s linear;
 
 		&:hover {
 			color: $black;
@@ -156,27 +156,27 @@
 		&__img {
 			flex: 0 0 170px;
 		}
-	
+
 		// .main-products__name-size
 		&__name-size {
 			margin: 0 0 0 13px;
 		}
-	
+
 		&__price-amount {
 			padding: 0;
 			flex: 0 0 330 / 780 * 100%;
 			align-items: start;
 		}
-	
+
 		// .main-products__delete
 		&__delete {
 			margin: -16px 0 0 auto;
 		}
-		
+
 		&__btn-wrap {
 			width: 780 / 1200 * 100%;
 			margin: 0 auto;
 		}
 	}
-	
+
 }

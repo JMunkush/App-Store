@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.min.css">
+    <title>Продукт</title>
+</head>
+<body>
+<div class="wrapper">
 
+    <header class="header">
+        <div class="container">
+            <div class="head-top">
+                <label for="searchInp" class="head-top__search-lbl ">
+                    <input class="head-top__search-inp" type="text" name="search" id="searchInp" placeholder="Поиск" autocomplete="off">
+                    <i class="icon-search" id="searchIcon"></i>
+                </label>
+                <a th:href="@{'/'}" class="head-top__logo">
+                    <img class="img-fluid" src="img/logo.svg" alt="mimi ilnitskaya logo">
+                </a>
+                <div class="head-top__right">
+                    <ul class="head-top__lang-list">
+                        <!--<a class="nav-link" href="?lng=en">ENG<span class="sr-only">(current)</span></a>-->
+                        <li class="head-top__lang-item" ><a href="?lng=kz">kz</a></li>
+                        <li class="head-top__lang-item head-top__lang-item_active"><a href="?lng=ru">ru</a></li>
+                        <li class="head-top__lang-item"><a href="?lng=en">en</a></li>
+                    </ul>
+                    <a href="cart.html" class="head-top__cart">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="head-top__cart-badge" th:text="${amount}" th:href="@{'basketPage?id='}" ></span>
+                        <!--                            <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>-->
 
-<div layout:fragment="main-content">
-
+                    </a>
+                </div>
+                <div class="head-top__menu" id="menuIcon">
+                    <span></span>
+                </div>
+            </div>
+            <nav class="head-nav-bttm">
+                <div class="head-top__right">
+                    <ul class="head-top__lang-list">
+                        <li class="head-top__lang-item">kz</li>
+                        <li class="head-top__lang-item head-top__lang-item_active">ru</li>
+                        <li class="head-top__lang-item">en</li>
+                    </ul>
+                    <a href="./cart.html" class="head-top__cart">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>
+                    </a>
+                </div>
+                <ul class="head-nav-bttm__list">
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{'/item_page'}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">Admin</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{'/login'}">Login</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/}">Главная</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/bestsellers}">Бестселлеры</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/tshirts}">Каталог</a>
+                        <ul class="head-nav-bttm__sublist list-wrap">
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/catalog}" class="head-nav-bttm__sublink">Футболки</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/sweetshots}" class="head-nav-bttm__sublink">Свитшоты</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/postcard}" class="head-nav-bttm__sublink">Открытки</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/shoppers}" class="head-nav-bttm__sublink">Шопперы</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/posters}" class="head-nav-bttm__sublink">Постеры</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/cases}" class="head-nav-bttm__sublink">Чехлы</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/hoodie}" class="head-nav-bttm__sublink">Худи</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/howOrder}">Как заказать</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/aboutAuthor}">Об авторе</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/collab}">Коллаборации</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/blog}">Блог</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/contacts}">Контакты</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <button class="head-nav-bttm__link text-end" type="button" data-bs-toggle="modal" data-bs-target="#supportModal">Поддержка</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <section class="item">
 
         <div class="container">
@@ -12,105 +125,111 @@
             <div class="item__inner-wrap">
 
                 <div class="item__images">
-                    <div class="row gx-2">
-                        <div class="col-4">
-                            <div class="item__images-img">
-                                <img th:src="${item.getSmallPicURL()}" alt="product image" class="img-fluid">
+                    <div class="swiper item__slider-top">
+                        <div class="swiper-wrapper item__slider-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item__images-img">
+                                    <img src="./img/item1.jpg" alt="product image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item__images-img">
+                                    <img src="./img/item2.jpg" alt="product image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item__images-img">
+                                    <img src="./img/item3.jpg" alt="product image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item__images-img">
+                                    <img src="./img/item4.jpg" alt="product image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item__images-img">
+                                    <img src="./img/item5.jpg" alt="product image" class="img-fluid">
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="col-6">-->
-<!--                            <div class="item__images-img">-->
-<!--                                <img src="./img/item2.jpg" alt="product image" class="img-fluid">-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
 
-<!--                    <div class="row gx-2">-->
-<!--                        <div class="col-4">-->
-<!--                            <div class="item__images-img">-->
-<!--                                <img src="./img/item3.jpg" alt="product image" class="img-fluid">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-4">-->
-<!--                            <div class="item__images-img">-->
-<!--                                <img src="./img/item4.jpg" alt="product image" class="img-fluid">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-4">-->
-<!--                            <div class="item__images-img">-->
-<!--                                <img src="./img/item5.jpg" alt="product image" class="img-fluid">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                <div class="item__info">
+                    <h6 class="item__info-name">Футболка ABAY</h6>
+                    <ul class="item__info-list">
+                        <li class="item__info-item">Состав: хлопок 95% , лайкра 5%</li>
+                        <li class="item__info-item">Нанесение: прямая печать и шелкография</li>
+                        <li class="item__info-item">Сезон: Мульти</li>
+                        <li class="item__info-item">Производство: Казахстан</li>
+                        <li class="item__info-item">Тип: Оверсайз по авторскому лекалу</li>
+                        <li class="item__info-item">Модель ростом 187см</li>
+                        <li class="item__info-item">На фото размер L</li>
+                        <li class="item__info-item">Футболка черного цвета</li>
+                    </ul>
 
-                <div class="col-8">
-                    <div class="item__info">
-                        <h6 class="item__info-name" th:text="${item.getName()}"></h6>
-                        <ul class="item__info-list">
-                            <li class="item__info-item">Состав: <span th:text="${item.compound}"></span></li>
-                            <li class="item__info-item">Коллекция: <span th:text="${item.brands.name}"></span></li>
-                            <li class="item__info-item">Иллюстрация: <span th:text="${item.getName()}"></span></li>
-                            <li class="item__info-item">Количество: 1</li>
-                        </ul>
-
-                        <div class="item__info-order row justify-content-start row-cols-auto g-0">
-                            <div class="dropdown item__info-order-size col">
-                                <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Выбрать размер
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <span>S</span><span>44-48</span>
-                                    </li>
-                                    <li>
-                                        <span>M</span><span>50-52</span>
-                                    </li>
-                                    <li>
-                                        <span>L</span><span>52-54</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item__info-counter btn-border col">
+                    <div class="item__info-order row justify-content-start row-cols-auto g-0">
+                        <div class="dropdown item__info-order-size col">
+                            <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Выбрать размер
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <span>S</span><span>44-48</span>
+                                </li>
+                                <li>
+                                    <span>M</span><span>50-52</span>
+                                </li>
+                                <li>
+                                    <span>L</span><span>52-54</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item__info-counter btn-border col">
 						<span class="item__info-counter-btn item__info-counter-btn_increment">
 							<i class="icon-arrow-down"></i>
 						</span>
-                                <span class="item__info-counter-num">1</span>
-                                <span class="item__info-counter-btn item__info-counter-btn_decrement">
+                            <span class="item__info-counter-num">1</span>
+                            <span class="item__info-counter-btn item__info-counter-btn_decrement">
 							<i class="icon-arrow-down"></i>
 						</span>
-                            </div>
-                            <div class="dropdown item__info-order-color col">
-                                <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Цвета
-                                </button>
-                                <ul class="dropdown-menu" id="itemColorsList">
-                                    <li data-color="Желтый">
-                                        Желтый
-                                    </li>
-                                    <li data-color="Черный">
-                                        Черный
-                                    </li>
-                                    <li data-color="Красный">
-                                        Красный
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-
-                        <h6 class="item__info-price" th:text="${item.price} + ${' тг'}"></h6>
-                        <a class="item__info-order-btn" type="button" th:href="@{'basketPage?id='+${item.id}}">Добавить в корзину</a>
-                        <!--                    <form th:action="@{'basketPage'}">-->
-                        <!--                        <button class="item__info-order-btn" type="button">-->
-                        <!--    &lt;!&ndash;                        th:href="@{'basketPage?id='+${item.id}}"&ndash;&gt;-->
-                        <!--                            Добавить в корзину-->
-                        <!--                        </button>-->
-                        <!--                    </form>-->
+                        <div class="dropdown item__info-order-color col">
+                            <button class="btn-border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Цвета
+                            </button>
+                            <ul class="dropdown-menu" id="itemColorsList">
+                                <li data-color="Желтый">
+                                    Желтый
+                                </li>
+                                <li data-color="Черный">
+                                    Черный
+                                </li>
+                                <li data-color="Красный">
+                                    Красный
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <h6 class="item__info-price">19.900 тг</h6>
+                    <button class="item__info-order-btn" type="button">
+                        Добавить в корзину
+                    </button>
                 </div>
-                </div>
-                </div>
+
                 <div class="item__description">
                     <h6 class="item__description-title">Описание</h6>
-                    <p class="item__description-txt" th:text="${item.description}"></p>
+                    <p class="item__description-txt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac leo a nibh luctus luctus.
+                        Mauris venenatis accumsan erat quis elementum. Suspendisse commodo, risus sed laoreet porta,
+                        risus enim maximus nunc, non semper erat velit vel sem. Morbi eu ex in neque laoreet tincidunt.
+                        Fusce nec sollicitudin mi. Quisque ut felis tristique, facilisis nunc sed, mattis nunc.
+                        Aenean placerat purus neque, sit amet sagittis turpis tempus at.
+                    </p>
                 </div>
 
             </div>
@@ -118,81 +237,117 @@
         </div>
 
     </section>
+    <footer class="footer">
+        <div class="container">
 
+            <div class="row">
 
-<!--    <div class = "row mt-3">-->
-<!--        <div class = "col-sm-3">-->
-<!--           <ul class="list-group" >-->
-<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white" th:text="#{Categories}">Categories</strong></li>-->
-<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/cart.png">   <strong style="color: black" th:text="#{All}"></strong></li>-->
-<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/phone.png">  <strong style="color: black"  th:text="#{Phone_Gadgets}"></strong></li>-->
-<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/tv.png">  <strong style="color: black"  th:text="#{TV_audio}"></strong></li>-->
-<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/game.png">  <strong style="color: black"   th:text="#{Game_Consoles}"></strong></li>-->
-<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/trolley-cart.png"> <strong style="color: black"  th:text="#{Other}">Other</strong></li>-->
-<!--            </ul>-->
-<!--            <br>-->
-<!--            <ul class="list-group" >-->
-<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white"  th:text="#{label.brands}"></strong></li>-->
-<!--                <strong style="color: black" ><a th:href="@{'detailsBrand?id='+${br.getId()}}" class="list-group-item list-group-item-action" th:each="br:${brands}" th:text="${br.getName()}" style="color: black"></a></strong>-->
-<!--            </ul>-->
-<!--        </div>-->
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Наш адресс</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-map"></i>
+                            <span class="footer__link footer__txt">ТРЦ FORUM 2 Этаж</span>
+                        </li>
 
-<!--        <div class = "col-sm-9">-->
-<!--            <div class="row">-->
-<!--                <div class="col-9">-->
-<!--                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">-->
-<!--                </div>-->
-<!--                <div class="col-3">-->
-<!--                    <button class="btn btn-success" type="submit" style="width: 180px">Search</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card-deck">-->
-<!--                        <div class="card mt-3" >-->
-<!--                            <img th:src="${item.getLargePicURL()}" class="card-img-top" alt="..." style="height: 500px;">-->
-<!--                            <div class="card-body">-->
-<!--                                <a th:href="@{'details?id='+${item.getId()}}"><h6 class="card-title" th:text="${item.getName()}"></h6></a>-->
-<!--                                <strong style="color: black"><h5 class="card-title" th:text="${'$'} + ${item.price} "></h5></strong>-->
-<!--                                <p class="card-text" th:text="${item.description}" style="min-height: 75px;"></p>-->
-<!--                                <strong style="color: black">BRAND: </strong><a th:href="@{'detailsBrand?id='+${item.brands.getId()}}" class="link" th:text="${item.getBrands().getName()} + ',' + ${item.getBrands().getCountries().getName()}"></a>-->
-<!--                                <br>-->
-<!--                                <h4 style="margin-left:330px;">Screenshots</h4>-->
-<!--                                <br>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="big-screen">-->
-<!--                                        <img  style="width:300px;height: 300px;max-width: none;padding: 0px;border: 2px solid #dee2e6;margin-left:270px;"th:src="@{'/viewphoto_item/'+${pictures[0].url}}" class="img-thumbnail">-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="slides" style="flex-grow:0;margin-right: 10px;" th:each="p:${pictures}">-->
-<!--                                        <img th:if="${p.item.id == item.id}" style="width:100px;height: 100px;max-width: none;padding: 0px;border: 2px solid #dee2e6;"th:src="@{'/viewphoto_item/'+${p.url}}" class="img-thumbnail">-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="card-footer">-->
-<!--                                <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,(item.stars)-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">-->
-<!--                                <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(item.stars)-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--            <br>-->
-<!--            <div class="row">-->
-<!--                <div class="col">-->
-<!--                    <a type="button" class="btn btn-success" th:href="@{'basketPage?id='+${item.id}}" >Add to Basket</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
+                        <li class="footer__list-item">
+                            <i class="icon-clock"></i>
+                            <span class="footer__link footer__txt">10:00 - 22:00</span>
+                        </li>
+                    </ul>
 
-            $('.row .slides > img').click(function(){
-                var $smallImages = $(this).attr('src');
-                $('.big-screen > img').attr('src',$smallImages);
-            });
-        });
-    </script>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Контакты</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-phone"></i>
+                            <a href="tel:+77071011479" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-whatsapp"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-telegram"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Следите за нами</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya_store</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="footer__item-last">
+                        <h6 class="footer__title">Помощь</h6>
+                        <ul class="footer__list">
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Поддержка</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Контакты</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Как заказать</a>
+                            </li>
+                        </ul>
+                        <button class="btn-border footer__callback-btn" type="button" >Заказать звонок</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div class="modal" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-card support-modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="modal-card__form order-form" action="#" method="get">
+
+                        <label for="nameInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="nameInpSupport" autocomplete="off" placeholder="Имя*" required>
+                        </label>
+                        <label for="mailInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="mailInpSupport" autocomplete="off" placeholder="Электроная почта*" required>
+                        </label>
+                        <label for="phoneInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="phoneInpSupport" autocomplete="off" placeholder="Номер телефона*" required>
+                        </label>
+
+                        <label for="countryInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="countryInpSupport" autocomplete="off" placeholder="Тема*" required>
+                        </label>
+
+                        <textarea class="modal-card__txtarea" autocomplete="off" placeholder="Коментарий*" required></textarea>
+
+                        <button class="btn-border modal-card__submit-btn" data-bs-dismiss="modal"  type="button">Отправить</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-modal-txt" id="supportModalTxt">
+        <p class="support-modal-txt__txt">Благодарим за обращение! Менеджер свяжется с вами в рабочее время с 09:00 до 21:00, время г Алматы</p>
+    </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script type="module" src="./js/script.min.js"></script>
+</body>
 </html>

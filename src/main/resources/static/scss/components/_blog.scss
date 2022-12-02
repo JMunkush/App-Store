@@ -100,9 +100,9 @@
 }
 
 @media screen and (min-width: 600px) {
-	
+
 	.blog {
-	
+
 		// .blog__inner-wrap
 		&__inner-wrap {
 			display: flex;
@@ -114,11 +114,11 @@
 		&__img {
 			height: 350px;
 		}
-	
+
 		// .blog__post
 		&__post {
 			flex: 0 0 49%;
-	
+
 			&:not(:last-child) {
 				margin: 0;
 			}
@@ -128,7 +128,7 @@
 }
 
 @media screen and (min-width: 1040px) {
-	
+
 	.blog {
 
 		& > .container {
@@ -146,11 +146,11 @@
 			margin: -100px auto 0;
 			width: 545 / 588 * 100%;
 		}
-	
+
 		// .blog__post
 		&__post {
 			flex: 0 0 588 / 1190 * 100%;
-	
+
 			&:not(:last-child) {
 				margin: 0;
 			}

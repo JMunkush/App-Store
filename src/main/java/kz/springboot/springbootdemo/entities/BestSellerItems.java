@@ -13,7 +13,7 @@ public class BestSellerItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
-    private List<Items> items;
+    @OneToOne
+    private Items items;
     private Date addedDate;
 }

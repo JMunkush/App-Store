@@ -31,7 +31,7 @@ public class Users {
     @Column(name = "user_avatar")
     private String userAvatar;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Roles> roles;
 }
 

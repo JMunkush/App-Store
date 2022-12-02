@@ -4,91 +4,34 @@
 
 
 <div layout:fragment="main-content">
-    <div class = "row mt-3">
-        <div class = "col-sm-3">
-            <ul class="list-group" >
-                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white" th:text="#{Categories}">Categories</strong></li>
-                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/cart.png">   <strong style="color: black" th:text="#{All}"></strong></li>
-                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/phone.png">  <strong style="color: black"  th:text="#{Phone_Gadgets}"></strong></li>
-                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/tv.png">  <strong style="color: black"  th:text="#{TV_audio}"></strong></li>
-                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/game.png">  <strong style="color: black"   th:text="#{Game_Consoles}"></strong></li>
-                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/trolley-cart.png"> <strong style="color: black"  th:text="#{Other}">Other</strong></li>
-            </ul>
-            <br>
-            <ul class="list-group" >
-                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white"  th:text="#{label.brands}"></strong></li>
-                <strong style="color: black" ><a th:href="@{'detailsBrand?id='+${br.getId()}}" class="list-group-item list-group-item-action" th:each="br:${brands}" th:text="${br.getName()}" style="color: black"></a></strong>
-            </ul>
-        </div>
-        <div class = "col-sm-9">
-            <form th:action="@{'/sorted'}" method="get">
-                <div class="row">
-                            <div class="col-3">
-                                <label th:text="#{name}">Name:</label>
-                                <input class="form-control " name="search_item" th:value="${search_name}" type="search" aria-label="Search" placeholder="Enter to search...">
-                            </div>
-                            <div class="col-3">
-                                <label th:text="#{label.brands}">Brand:</label>
-                                <select class="form-control" name="brand_id">
-                                    <option th:each="b:${brands}" th:text="${b.getName()}" th:value="${b.getId()}"></option>
-                                </select>
-                            </div>
-                            <div class="col-2">
-                                <label th:text="#{price_from}">Price From:</label>
-                                <input class="form-control " name="price_from" type="search"  aria-label="Search">
-                            </div>
-                            <div class="col-2">
-                                <label th:text="#{price_to}">Price To:</label>
-                                <input class="form-control " name="price_to" type="search" aria-label="Search">
-                            </div>
-                            <div class="col-2">
-                                <button class="btn btn-success"  type="submit" style="width: 107px;margin-top: 31px;background-color: #ff6f1a" th:text="#{Search}">Search</button>
-                            </div>
-                    </div>
-                <br>
-                <div class="row">
-                    <div class="col-7">
-                        <h4 th:text="#{results}">Search Results:</h4>
-                    </div>
-                    <div class="col-2">
-                        <label style="font-size: 13px;margin-top: 8px" th:text="#{order}">Order by Price:</label>
-                    </div>
-                    <div class="col-3">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="height:33px;">
+    <section class="products">
 
-                                <p class="btn btn-secondary active" style="font-size: 13px">
-                                    <input type="radio" name="ascending" value="ascending" checked> Ascending
-                                </p>
-                                <p class="btn btn-secondary"style="font-size: 13px">
-                                    <input type="radio" name="ascending" value="descending" > Descending
-                                </p>
-                            </div>
+        <div class="container px-0">
+
+            <h5 class="main-title text-center" th:text="#{label.newitems}"></h5>
+
+            <div class="row gx-lg-5">
+                <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3" th:each="st:${items}">
+                    <div class="product-card__top mb-1">
+                        <img th:src="${st.getSmallPicURL()}" alt="product image" class="img-fluid">
+                    </div>
+                    <div class="product-card__bttm">
+                        <div class="product-card__info">
+                            <a th:href="@{'details?id='+${st.getId()}}">
+                                <div class="product-card__name d-flex justify-content-between align-items-center">
+                                    <h4 th:text="${st.name}"></h4>
+                                </div>
+                            </a>
+                            <div class="product-card__price"><h5 th:text="${st.getPrice()}"></h5></div>
+                            <i class="icon-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
-            </form>
-            <div class="row">
-                        <div class="col-4" th:each="st:${items}">
-                            <div class="card-deck">
-                                <div class="card mt-3" >
-                                    <img th:src="${st.getSmallPicURL()}" class="card-img-top" alt="..." style="height: 175px;">
-                                    <div class="card-body">
-                                        <a th:href="@{'details?id='+${st.getId()}}"><h6 class="card-title" th:text="${st.name}"></h6></a>
-                                        <h6 class="card-title" th:text="${'$'} + ${st.price} "></h6>
-                                        <p class="card-text" th:text="${st.description}" style="min-height: 75px;"></p>
-                                        <strong style="color: black">BRAND: </strong><a th:href="@{'detailsBrand?id='+${st.brands.getId()}}" class="link" th:text="${st.getBrands().getName()} + ',' + ${st.getBrands().getCountries().getName()}"></a>
-                                    </div>
-                                    <div class="card-footer">
-                                        <img style="height: 15px;width: 15px;margin-left: 3px" th:each="i:${#numbers.sequence(0,st.getStars()-1,1)}"  src="icons/star_y.png" class="card-img-top" alt="...">
-                                        <img style="height: 15px;width: 15px;margin-right: 3px" th:each="i:${#numbers.sequence(0,5 -(st.getStars())-1,1)}"  src="icons/star.png" class="card-img-top" alt="...">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
             </div>
 
         </div>
-    </div>
+
+    </section>
 </div>
 
 </html>

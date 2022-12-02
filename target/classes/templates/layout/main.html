@@ -25,10 +25,20 @@
         <header class="header">
             <div class="container">
                 <div class="head-top">
-                    <label for="searchInp" class="head-top__search-lbl ">
-                        <input class="head-top__search-inp" type="text" name="search" id="searchInp" placeholder="Поиск" autocomplete="off">
-                        <i class="icon-search" id="searchIcon"></i>
-                    </label>
+                    <form th:action="@{'/search'}" method="get">
+                        <div class="row head-top__search-lbl">
+                            <div class="col-3">
+                                <label for="searchInp" class="head-top__search-lbl">
+                                    <input class="head-top__search-inp" type="search" name="search" id="searchInp" placeholder="Поиск" autocomplete="off">
+                                    <i class="icon-search" id="searchIcon"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-2">
+                            <button class="btn-border footer__callback-btn" type="submit" th:href="@{'/search'}">Поиск</button>
+                        </div>
+                    </form>
                     <a th:href="@{'/'}" class="head-top__logo">
                         <img class="img-fluid" src="img/logo.svg" alt="mimi ilnitskaya logo">
                     </a>
@@ -61,16 +71,15 @@
                             <i class="icon-shopping-cart"></i>
                             <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>
 <!--                        <a class="item__info-order-btn" type="button" th:href="@{'basketPage?id='+${item.id}}">Добавить в корзину</a>-->
-
                         </a>
                     </div>
                     <ul class="head-nav-bttm__list">
                         <li class="head-nav-bttm__item">
                             <a class="head-nav-bttm__link" th:href="@{'/item_page'}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">Admin</a>
                         </li>
-<!--                        <li class="head-nav-bttm__item">-->
-<!--                            <a class="head-nav-bttm__link" th:href="@{'/login'}">Login</a>-->
-<!--                        </li>-->
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/login'}">Login</a>
+                        </li>
                         <li class="head-nav-bttm__item head-nav-bttm__item_active">
                             <a class="head-nav-bttm__link" th:href="@{'/'}" th:text="#{label.home}"></a>
                         </li>
