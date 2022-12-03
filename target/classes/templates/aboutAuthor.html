@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <title>Об авторе</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="head-top">
+                <label for="searchInp" class="head-top__search-lbl ">
+                    <form th:action="@{'/search'}" method="get">
+                        <div class="row head-top__search-lbl">
+                            <div class="col-3">
+                                <label for="searchInp" class="head-top__search-lbl">
+                                    <input class="head-top__search-inp" type="search" name="search" id="searchInp" placeholder="Поиск" autocomplete="off">
+                                    <i class="icon-search" id="searchIcon"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-2">
+                            <button class="btn-border footer__callback-btn" type="submit" th:href="@{'/search'}">Поиск</button>
+                        </div>
+                    </form>
+                </label>
+                <a href="./index.html" class="head-top__logo">
+                    <img class="img-fluid" src="./img/logo.svg" alt="mimi ilnitskaya logo">
+                </a>
+                <div class="head-top__right">
+                    <ul class="head-top__lang-list">
+                        <li class="head-top__lang-item">kz</li>
+                        <li class="head-top__lang-item head-top__lang-item_active">ru</li>
+                        <li class="head-top__lang-item">en</li>
+                    </ul>
+                    <a href="./cart.html" class="head-top__cart">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="head-top__cart-badge">2</span>
+                    </a>
+                </div>
+                <div class="head-top__menu" id="menuIcon">
+                    <span></span>
+                </div>
+            </div>
+            <nav class="head-nav-bttm">
+                <div class="head-top__right">
+                    <ul class="head-top__lang-list">
+                        <li class="head-top__lang-item">kz</li>
+                        <li class="head-top__lang-item head-top__lang-item_active">ru</li>
+                        <li class="head-top__lang-item">en</li>
+                    </ul>
+                    <a href="./cart.html" class="head-top__cart">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>
+                    </a>
+                </div>
+                <ul class="head-nav-bttm__list">
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{'/item_page'}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">Admin</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{'/login'}">Login</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/}">Главная</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/bestsellers}">Бестселлеры</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/tshirts}">Каталог</a>
+                        <ul class="head-nav-bttm__sublist list-wrap">
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/catalog}" class="head-nav-bttm__sublink">Футболки</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/sweetshots}" class="head-nav-bttm__sublink">Свитшоты</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/postcard}" class="head-nav-bttm__sublink">Открытки</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/shoppers}" class="head-nav-bttm__sublink">Шопперы</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/posters}" class="head-nav-bttm__sublink">Постеры</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/cases}" class="head-nav-bttm__sublink">Чехлы</a>
+                            </li>
+                            <li class="head-nav-bttm__subitem">
+                                <a th:href="@{/hoodie}" class="head-nav-bttm__sublink">Худи</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/howOrder}">Как заказать</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/aboutAuthor}">Об авторе</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/collab}">Коллаборации</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/blog}">Блог</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <a class="head-nav-bttm__link" th:href="@{/contacts}">Контакты</a>
+                    </li>
+                    <li class="head-nav-bttm__item">
+                        <button class="head-nav-bttm__link text-end" type="button" data-bs-toggle="modal" data-bs-target="#supportModal">Поддержка</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="about-author">
+        <div class="container">
+
+            <h5 class="main-title about-author__title text-center">
+                Mimi ilnitskaya
+            </h5>
+
+            <div class="about-author__row">
+                <div class="about-author__slider swiper">
+                    <div class="swiper-wrapper about-author__slider-wrapper">
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi1.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi2.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi3.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi4.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi5.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slider__item">
+                            <div class="about-author__img rounded-img">
+                                <img src="./img/mimi6.png" alt="mimi ilnitskaya image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+
+            <div class="about-author__bttm">
+                <p class="about-author__txt">
+                    <span class="about-author__txt_name">Мария Ильницкая</span> — художник, иллюстратор из Алматы. Рассказала, как пришла к творчеству,
+                    где находит вдохновение и какие сложности есть у представителей искусства в Казахстане.
+                </p>
+                <p class="about-author__txt">
+                    Мария Ильницкая, <span class="about-author__txt_bold">34 года</span>, город — Алматы, художник, иллюстратор, <a href="#" class="about-author__txt_bold">@mimi.ilnitskaya</a>
+                    Я художница, иллюстратор и владелица небольшого бренда Mimi Ilnitskaya.
+                </p>
+                <p class="about-author__txt">
+                    Мне с детства пророчили творческий путь. Поэтому учиться на художницу я начала с седьмого класса.
+                    Долгий путь обучения в КазНАИ, а потом в КазГАСА привели меня к рекламному бизнесу.
+                    В этой индустрии я попробовала себя в роли коммерческого иллюстратора. И по сей день занимаюсь этим делом.
+                    Мое творчество — это дневник жизни! Все, что я переживаю в каждый момент, все мои реакции,
+                    влюбленности, смена места жительства — отражаются в иллюстрациях.
+                </p>
+                <p class="about-author__txt">
+                    Уловить вдохновение можно от всего: песни, разговора, знакомства, природы, кинокартины или аниме.
+                    Как только ты уловил отклик внутри себя, как только почувствовал свою интерпретацию или реакцию — самое время садиться и творить.
+                    У меня много проектов — они любят меня, а я обожаю их! Для своего бренда я запускаю капсульный дроп одежды по январским событиям,
+                    где будет всего <span class="about-author__txt_bold">100</span> единиц. Но если сложить все вещи коллекции, мы получим один рисунок. Это интерпретация одного события,
+                    которое коснулось сразу многих.
+                    Для клиентов, мы с командой готовим участие в трех ивентах.
+                    Это три добрых праздника, которые растянутся на весь теплый период, на несколько городов и
+                    напомнят всем, как прекрасно, когда мы есть друг у друга.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Наш адресс</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-map"></i>
+                            <span class="footer__link footer__txt">ТРЦ FORUM 2 Этаж</span>
+                        </li>
+
+                        <li class="footer__list-item">
+                            <i class="icon-clock"></i>
+                            <span class="footer__link footer__txt">10:00 - 22:00</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Контакты</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-phone"></i>
+                            <a href="tel:+77071011479" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-whatsapp"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-telegram"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Следите за нами</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya_store</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="footer__item-last">
+                        <h6 class="footer__title">Помощь</h6>
+                        <ul class="footer__list">
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Поддержка</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Контакты</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Как заказать</a>
+                            </li>
+                        </ul>
+                        <button class="btn-border footer__callback-btn" type="button" >Заказать звонок</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div class="modal" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-card support-modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="modal-card__form order-form" action="#" method="get">
+
+                        <label for="nameInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="nameInpSupport" autocomplete="off" placeholder="Имя*" required>
+                        </label>
+                        <label for="mailInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="mailInpSupport" autocomplete="off" placeholder="Электроная почта*" required>
+                        </label>
+                        <label for="phoneInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="phoneInpSupport" autocomplete="off" placeholder="Номер телефона*" required>
+                        </label>
+
+                        <label for="countryInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="countryInpSupport" autocomplete="off" placeholder="Тема*" required>
+                        </label>
+
+                        <textarea class="modal-card__txtarea" autocomplete="off" placeholder="Коментарий*" required></textarea>
+
+                        <button class="btn-border modal-card__submit-btn" data-bs-dismiss="modal"  type="button">Отправить</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-modal-txt" id="supportModalTxt">
+        <p class="support-modal-txt__txt">Благодарим за обращение! Менеджер свяжется с вами в рабочее время с 09:00 до 21:00, время г Алматы</p>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script type="module" src="./js/script.min.js"></script>
+</body>
+</html>

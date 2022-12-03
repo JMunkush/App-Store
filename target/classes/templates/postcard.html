@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+
+  <section class="products">
+
+    <div class="container px-0">
+
+      <h5 class="main-title text-center">Открытки</h5>
+
+      <div class="row gx-lg-5">
+        <div class="product-card mb-4 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3" th:each="st:${shopItems}">
+          <div class="item__images">
+            <div class="swiper item__slider-top">
+              <div class="swiper-wrapper item__slider-wrapper">
+                <div class="swiper-slide">
+                  <div class="item__images-img">
+                    <img src="./img/item1.jpg" alt="product image" class="img-fluid">
+                  </div>
+                </div>
+
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+          <div class="product-card__bttm">
+            <div class="product-card__info">
+              <a th:href="@{'details?id='+${st.getId()}}">
+                <div class="product-card__name d-flex justify-content-between align-items-center">
+                  <h4 th:text="${st.name}"></h4>
+                </div>
+              </a>
+              <div class="product-card__price"><h5 th:text="${st.getPrice()}"></h5></div>
+              <i class="icon-shopping-cart"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+</div>
+</html>

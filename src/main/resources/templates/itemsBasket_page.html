@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/admin_main.html">
+
+
+<div layout:fragment="main-content" style="margin-left: 0px">
+    <div class = "row">
+        <div class = "col-sm-3" style="background-color: #e9ecef;height: 800px">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p>ADMIN PANEL</p>
+                    <p><a href="/usersPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Пользователи</a></p>
+                    <p><a href="/rolesPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Роли</a></p>
+                    <p><a href="/adminPage" sec:authorize="hasAnyRole('ROLE_ADMIN')">Страны</a></p>
+                    <p><a href="/brand_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Коллекция</a></p>
+                    <p><a href="/item_page" sec:authorize="hasAnyRole('ROLE_MODERATOR','ROLE_ADMIN')">Товары</a></p>
+                    <p><a href="/category_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Категории</a></p>
+                    <p><a href="/size_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Размеры</a>
+                    <p><a href="/color_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Цвета</a>
+                    <p><a href="/banner_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">Баннеры</a>
+                    <p><a href="/itemsBasket_page" sec:authorize="hasAnyRole('ROLE_ADMIN')">История заказов</a></p>
+                </div>
+            </div>
+        </div>
+        <div class = "col-sm-9" style="background-color: white">
+            <div class="card"style="width: 900px;border: none;margin-top: 50px;">
+                <h5 class="card-header" style="background-color: white">История заказов:</h5>
+                <div class="card-body">
+                    <table class = "table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ФИО</th>
+                            <th>Товары</th>
+                            <th>Дата заказа</th>
+
+                        </tr>
+                        </thead>
+                        <tr th:each="b:${baskets_users}">
+                            <td th:text="${b.id}"></td>
+                            <td th:text="${b.getUser_name()}"></td>
+                            <td><span th:text="${b.items_name}" style="display: block"></span></td>
+                            <td th:text="${b.getAddedDate()}"></td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

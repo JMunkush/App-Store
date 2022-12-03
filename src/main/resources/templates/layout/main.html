@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec = "http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/style.min.css">
+
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
+
+</head>
+<body>
+<!--    <div class="wrapper">-->
+        <header class="header">
+            <div class="container">
+                <div class="head-top">
+                    <form th:action="@{'/search'}" method="get">
+                        <div class="row head-top__search-lbl">
+                            <div class="col-3">
+                                <label for="searchInp" class="head-top__search-lbl">
+                                    <input class="head-top__search-inp" type="search" name="search" id="searchInp" placeholder="Поиск" autocomplete="off">
+                                    <i class="icon-search" id="searchIcon"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-2">
+                            <button class="btn-border footer__callback-btn" type="submit" th:href="@{'/search'}">Поиск</button>
+                        </div>
+                    </form>
+                    <a th:href="@{'/'}" class="head-top__logo">
+                        <img class="img-fluid" src="img/logo.svg" alt="mimi ilnitskaya logo">
+                    </a>
+                    <div class="head-top__right">
+                        <ul class="head-top__lang-list">
+                            <!--<a class="nav-link" href="?lng=en">ENG<span class="sr-only">(current)</span></a>-->
+                            <li class="head-top__lang-item" ><a href="?lng=kz">kz</a></li>
+                            <li class="head-top__lang-item head-top__lang-item_active"><a href="?lng=ru">ru</a></li>
+                            <li class="head-top__lang-item"><a href="?lng=en">en</a></li>
+                        </ul>
+                        <a href="cart.html" class="head-top__cart">
+                            <i class="icon-shopping-cart"></i>
+                            <span class="head-top__cart-badge" th:text="${amount}" th:href="@{'basketPage?id='}" ></span>
+<!--                            <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>-->
+
+                        </a>
+                    </div>
+                    <div class="head-top__menu" id="menuIcon">
+                        <span></span>
+                    </div>
+                </div>
+                <nav class="head-nav-bttm">
+                    <div class="head-top__right">
+                        <ul class="head-top__lang-list">
+                            <li class="head-top__lang-item" ><a href="?lng=kz">kz</a></li>
+                            <li class="head-top__lang-item head-top__lang-item_active"><a href="?lng=ru">ru</a></li>
+                            <li class="head-top__lang-item"><a href="?lng=en">en</a></li>
+                        </ul>
+<!--                        <a class="head-top__cart" href="">Basket(<span th:text="${amount}">()</span>)</a> >-->
+                            <i class="icon-shopping-cart"></i>
+                            <span class="head-top__cart-badge"><a class="head-top__cart" th:href="@{'/basketPage'}">Basket(<span th:text="${amount}">()</span>)</a> </span>
+<!--                        <a class="item__info-order-btn" type="button" th:href="@{'basketPage?id='+${item.id}}">Добавить в корзину</a>-->
+                        </a>
+                    </div>
+                    <ul class="head-nav-bttm__list">
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/item_page'}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">Admin</a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/login'}">Login</a>
+                        </li>
+                        <li class="head-nav-bttm__item head-nav-bttm__item_active">
+                            <a class="head-nav-bttm__link" th:href="@{'/'}" th:text="#{label.home}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/bestsellers'}" th:text="#{navbar.bestseller}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/tshirts'}" th:text="#{navbar.catalogue}"></a>
+                            <ul class="head-nav-bttm__sublist list-wrap">
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/tshirts'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.tshirts}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/sweethots'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.candles}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/postcard'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.postcards}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/shoppers'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.shoppers}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/posters'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.posters}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/cases'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.cases}"></a>
+                                </li>
+                                <li class="head-nav-bttm__subitem">
+                                    <a th:href="@{'/hoodie'}" class="head-nav-bttm__sublink" th:text="#{navbar.drop.hoodie}"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/howOrder'}" th:text="#{navbar.howorder}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/aboutAuthor'}" th:text="#{navbar.aboutauthor}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/collab'}" th:text="#{navbar.collaborations}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/blog'}" th:text="#{navbar.blog}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <a class="head-nav-bttm__link" th:href="@{'/contacts'}" th:text="#{navbar.contacts}"></a>
+                        </li>
+                        <li class="head-nav-bttm__item">
+                            <button class="head-nav-bttm__link text-end" type="button" data-bs-toggle="modal" data-bs-target="#supportModal">Поддержка</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+<!--    </div>-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark " style = "background-color: #ff6f1a">-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item ">-->
+<!--                <a class="nav-link" th:href="@{'/'}">All E-SHOP </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item ">-->
+<!--                <a class="nav-link" th:href="@{'/item_page'}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">Admin</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item " sec:authorize="isAuthenticated()">-->
+<!--                <a class="nav-link" th:href="@{'/profile'}" th:text="${currentUser.getFull_name()}">Login</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item " sec:authorize="isAnonymous()">-->
+<!--                <a class="nav-link" th:href="@{'/login'}">Login</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item " sec:authorize="isAuthenticated()">-->
+<!--                <a class="nav-link" href="JavaScript:void(0)" onclick="document.getElementById('logoutFormId').submit()">Logout</a>-->
+<!--            </li>-->
+<!--            <form th:action="@{'/logout'}" method="post" id="logoutFormId" sec:authorize="isAuthenticated()"></form>-->
+<!--        </ul>-->
+<!--        </ul>-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="?lng=en">ENG<span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="?lng=ru">RUS<span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="nav-link" href="">Basket(<span th:text="${amount}">()</span>)</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+
+<!--    </div>-->
+<!--</nav>-->
+<div class = "container" layout:fragment="main-content"></div>
+<div class="wrapper" layout:fragment="footer">
+    <footer class="footer mt-3">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Наш адресс</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-map"></i>
+                            <span class="footer__link footer__txt">ТРЦ FORUM 2 Этаж</span>
+                        </li>
+
+                        <li class="footer__list-item">
+                            <i class="icon-clock"></i>
+                            <span class="footer__link footer__txt">10:00 - 22:00</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Контакты</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-phone"></i>
+                            <a href="tel:+77071011479" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-whatsapp"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-telegram"></i>
+                            <a href="#" class="footer__link footer__txt">+7 707 101 1479</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <h6 class="footer__title">Следите за нами</h6>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya_store</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <i class="icon-instagram"></i>
+                            <a href="#" class="footer__link footer__txt">mimi.ilnitskaya</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__item col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    <div class="footer__item-last">
+                        <h6 class="footer__title">Помощь</h6>
+                        <ul class="footer__list">
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Поддержка</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Контакты</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a href="#" class="footer__link footer__txt">Как заказать</a>
+                            </li>
+                        </ul>
+                        <button class="btn-border footer__callback-btn" type="button" >Заказать звонок</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <div class="modal" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-card support-modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="modal-card__form order-form" action="#" method="get">
+
+                        <label for="nameInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="nameInpSupport" autocomplete="off" placeholder="Имя*" required>
+                        </label>
+                        <label for="mailInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="mailInpSupport" autocomplete="off" placeholder="Электроная почта*" required>
+                        </label>
+                        <label for="phoneInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="phoneInpSupport" autocomplete="off" placeholder="Номер телефона*" required>
+                        </label>
+
+                        <label for="countryInpSupport" class="modal-card__lbl order-form__lbl">
+                            <input type="text" name="name" id="countryInpSupport" autocomplete="off" placeholder="Тема*" required>
+                        </label>
+
+                        <textarea class="modal-card__txtarea" autocomplete="off" placeholder="Коментарий*" required></textarea>
+
+                        <button class="btn-border modal-card__submit-btn" data-bs-dismiss="modal"  type="button">Отправить</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-modal-txt" id="supportModalTxt">
+        <p class="support-modal-txt__txt">Благодарим за обращение! Менеджер свяжется с вами в рабочее время с 09:00 до 21:00, время г Алматы</p>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script type="module" src="js/script.min.js"></script>
+</body>
+</html>

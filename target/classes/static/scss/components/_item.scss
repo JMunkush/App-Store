@@ -1,0 +1,295 @@
+@import '../variables';
+
+.item {
+	padding: 40px 0 60px;
+
+	& > .container {
+		padding: 0 33px;
+	}
+
+	// .item__inner-wrap
+	// &__inner-wrap {
+	// }
+
+	// .item__images
+	&__images {
+		margin: 0 -4px 15px -4px;
+
+		& > .row:first-child {
+			margin: 0 0 10px 0;
+
+			& .item__images-img {
+				height: 180px;
+			}
+		}
+		& > .row:nth-child(2) {
+			margin: 0 0 10px 0;
+
+			& .item__images-img {
+				height: 120px;
+			}
+		}
+
+	}
+
+	// .item__images-img
+	&__images-img {
+		margin: 0 auto;
+		width: 90%;
+		max-height: 480px;
+
+		& > .img-fluid {
+			height: 100%;
+		}
+	}
+
+	// .item__info
+	&__info {
+		margin: 0 0 30px 0;
+	}
+
+	// .item__info-name
+	&__info-name {
+		font-weight: 500;
+		font-size: 25px;
+		margin: 0 0 15px 0;
+	}
+
+	// .item__info-list
+	&__info-list {
+		margin: 0 0 30px 0;
+	}
+
+	// .item__info-item
+	&__info-item {
+		font-size: 16px;
+
+		&:not(:last-child) {
+			margin: 0 0 15px 0;
+		}
+	}
+
+	// .item__info-order
+	&__info-order {
+		margin: 0 0 10px 0;
+
+		& > .col:not(:last-child) {
+			margin: 0 10px 10px 0;
+		}
+
+		& .dropdown-toggle {
+			padding-right: 50px;
+			font-weight: 600;
+			font-size: 16px;
+			position: relative;
+
+			&::before {
+				content: "\e900";
+				position: absolute;
+				top: 50%;
+				right: 12px;
+				transform: translateY(-50%);
+				font-family: 'icomoon';
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+
+		& .dropdown-menu {
+			width: 100%;
+			background: $white;
+			box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+			padding: 15px;
+			font-weight: 600;
+			font-size: 16px;
+
+			& > li {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				cursor: pointer;
+
+				&:not(:last-child) {
+					margin: 0 0 10px 0;
+				}
+			}
+		}
+	}
+
+	// .item__info-counter
+	&__info-counter {
+		display: flex;
+		justify-content: stretch;
+		align-items: stretch;
+		font-weight: 600;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	// .item__info-counter-btn
+	&__info-counter-btn {
+		flex: 1 0;
+		position: relative;
+		padding: 0 15px;
+		cursor: pointer;
+		transition: all .3s linear;
+
+		&:hover {
+			color: $hoverBlue;
+		}
+
+		& > i {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			pointer-events: none;
+
+		}
+
+		&_increment > i {
+			transform: translate(-50%, -50%) rotateZ(90deg);
+		}
+		&_decrement > i {
+			transform: translate(-50%, -50%) rotateZ(-90deg);
+		}
+	}
+
+	// .item__info-counter-num
+	&__info-counter-num {
+		font-weight: 600;
+		font-size: 16px;
+		padding: 0 5px;
+	}
+
+	// .item__info-price
+	&__info-price {
+		margin: 0 0 20px 0;
+		font-weight: 600;
+		font-size: 20px;
+	}
+
+	// .item__info-order-btn
+	&__info-order-btn {
+		padding: .25em 1.5em;
+		font-weight: 600;
+		font-size: 16px;
+		color: $white;
+		background: $black;
+		border-radius: 15px;
+		transition: all .3s linear;
+		border-color: $black;
+
+		&:hover {
+			color: $black;
+			background-color: $white;
+		}
+	}
+
+	&__description-title {
+		font-weight: 600;
+		font-size: 22px;
+		margin: 0 0 20px 0;
+	}
+
+	&__description-txt {
+		font-size: 16px;
+		line-height: 150.4%;
+	}
+
+	&__slider-top {
+		margin: 0 0 10px 0;
+	}
+
+	&__images {
+
+		& > .swiper {
+
+			& > .swiper-button-prev,
+			& > .swiper-button-next {
+				&::after {
+					font-size: 25px;
+					color: $darkGrey;
+				}
+			}
+
+			& > .swiper-button-prev {
+
+				left: 0;
+			}
+			& > .swiper-button-next {
+				right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.item {
+		// .item__images
+		&__images {
+			& .item__images-img {
+				width: 60%;
+			}
+
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.item {
+		// .item__images
+		&__images {
+			& .item__images-img {
+				width: 50%;
+			}
+
+		}
+	}
+}
+
+@media screen and (min-width: 1040px) {
+	.item {
+		& > .container {
+			padding: 0 .25em;
+		}
+
+		// .item__inner-wrap
+		&__inner-wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+
+		// .item__images
+		&__images {
+			min-width: 0;
+			flex: 60%;
+
+			& > .swiper {
+
+				& > .swiper-button-prev {
+					left: 15%;
+				}
+				& > .swiper-button-next {
+					right: 15%;
+				}
+			}
+
+		}
+
+		// .item__info
+		&__info {
+			flex: 1 0 auto;
+			margin: 0 0 0 35px;
+		}
+
+		// .item__description
+		&__description {
+			padding: 0 150px 0 0;
+		}
+	}
+}

@@ -1,0 +1,86 @@
+@import '../variables';
+
+.recomendation {
+	padding-bottom: 40px;
+
+	& > .container {
+		padding: 0 32px;
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 16px;
+	}
+
+	& .main-title {
+		margin-bottom: 40px;
+	}
+
+	&__innder-wrap {
+		max-height: 650px;
+	}
+
+	&__col {
+		flex: 1 0;
+
+		&:last-child {
+			margin: 0 0 0 7px;
+		}
+
+		& > .recomendation__card:first-child {
+			margin: 0 0 5px 0;
+		}
+	}
+
+	&__card {
+		position: relative;
+		height: 100%;
+		flex: 1 0;
+		&-top {
+			height: 100%;
+		}
+		&-top > .img-fluid {
+			height: 100%;
+		}
+	}
+
+	& > .container > .row {
+		padding: 0 20px;
+	}
+
+}
+@media screen and (min-width: 768px) {
+	.recomendation {
+
+		&__title {
+			font-size: 22px;
+		}
+
+	}
+}
+@media screen and (min-width: 1040px) {
+	.recomendation {
+		padding-bottom: 140px;
+
+		&__col {
+			&:last-child {
+				margin: 0 0 0 20px;
+			}
+			& > .recomendation__card:first-child {
+				margin: 0 0 13px 0;
+			}
+		}
+
+		& > .container {
+			padding: 0 136px;
+		}
+
+		&__title {
+			font-size: 30px;
+		}
+
+		& .main-title {
+			margin-bottom: 100px;
+		}
+	}
+}

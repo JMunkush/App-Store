@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1dd29ded-cef7-4e24-a9ba-ec3ab85fd443" name="Default Changelist" comment="changed application.properties" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Сымбат\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jOz7iRSNM3iRO4mXT5xsnXNxsB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\templates\layout" />
+      <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\templates" />
+      <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources" />
+      <recent name="D:\3-cource\Java EE\Another\springbootdemo\springbootdemo\src\main\resources\static" />
+      <recent name="C:\Users\tokta\Downloads\springbootdemo\springbootdemo\src\main\resources\static\item_pictures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\ItemPIC\shopperZodiak" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\ItemPIC\shopperMaxabat" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\ItemPIC\shopperEtnoshik" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\ItemPIC\shopperBatir" />
+      <recent name="C:\Users\NANOTECH\Desktop\DeployBranch\App-Store\src\main\resources\static\ItemPIC\hoodieWithFleece" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringbootdemoApplication">
+    <configuration name="ManifestReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kz.springboot.springbootdemo.ManifestReader" />
+      <module name="springbootdemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kz.springboot.springbootdemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootdemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springbootdemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kz.springboot.springbootdemo.SpringbootdemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ManifestReader" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dd29ded-cef7-4e24-a9ba-ec3ab85fd443" name="Default Changelist" comment="" />
+      <created>1603689762016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603689762016</updated>
+      <workItem from="1603689763076" duration="6577000" />
+      <workItem from="1603806984497" duration="16000" />
+      <workItem from="1603816789637" duration="7100000" />
+      <workItem from="1603880402445" duration="853000" />
+      <workItem from="1603881281252" duration="494000" />
+      <workItem from="1603882114746" duration="16754000" />
+      <workItem from="1603937497439" duration="3685000" />
+      <workItem from="1603996664074" duration="99000" />
+      <workItem from="1604320913803" duration="2382000" />
+      <workItem from="1604390928539" duration="10573000" />
+      <workItem from="1604406560350" duration="4125000" />
+      <workItem from="1604481617357" duration="7483000" />
+      <workItem from="1604492120024" duration="5976000" />
+      <workItem from="1604504024975" duration="12701000" />
+      <workItem from="1604541618800" duration="7454000" />
+      <workItem from="1604549756890" duration="3206000" />
+      <workItem from="1604582302361" duration="2847000" />
+      <workItem from="1604838458981" duration="23544000" />
+      <workItem from="1604923663976" duration="1222000" />
+      <workItem from="1604986735244" duration="1675000" />
+      <workItem from="1605074623288" duration="19798000" />
+      <workItem from="1605125201232" duration="1360000" />
+      <workItem from="1605146098199" duration="3532000" />
+      <workItem from="1605360249199" duration="14361000" />
+      <workItem from="1605439424697" duration="9605000" />
+      <workItem from="1605521870853" duration="352000" />
+      <workItem from="1605614969947" duration="6678000" />
+      <workItem from="1605701455018" duration="15709000" />
+      <workItem from="1605752275376" duration="9230000" />
+      <workItem from="1605788338347" duration="6823000" />
+      <workItem from="1606227436126" duration="27000" />
+      <workItem from="1606304972021" duration="8890000" />
+      <workItem from="1606314850952" duration="10340000" />
+      <workItem from="1606331780232" duration="7388000" />
+      <workItem from="1606358542834" duration="7396000" />
+      <workItem from="1606588368531" duration="354000" />
+      <workItem from="1606588814386" duration="10288000" />
+      <workItem from="1606719178376" duration="36000" />
+      <workItem from="1606797090839" duration="6240000" />
+      <workItem from="1606819190391" duration="5587000" />
+      <workItem from="1606914051946" duration="13979000" />
+      <workItem from="1607027332532" duration="904000" />
+      <workItem from="1607233867397" duration="1362000" />
+      <workItem from="1607238809863" duration="15172000" />
+      <workItem from="1607414025589" duration="2010000" />
+      <workItem from="1607425967331" duration="198000" />
+      <workItem from="1607429278346" duration="12145000" />
+      <workItem from="1607446263971" duration="1747000" />
+      <workItem from="1607489316400" duration="307000" />
+      <workItem from="1607490010281" duration="19837000" />
+      <workItem from="1607536404617" duration="2294000" />
+      <workItem from="1607538808249" duration="7065000" />
+      <workItem from="1607546273756" duration="6316000" />
+      <workItem from="1607567085299" duration="643000" />
+      <workItem from="1607609788298" duration="9951000" />
+      <workItem from="1666182298159" duration="11108000" />
+      <workItem from="1666680042972" duration="15217000" />
+      <workItem from="1666847974899" duration="4770000" />
+      <workItem from="1667370347753" duration="25789000" />
+      <workItem from="1667977203496" duration="21059000" />
+      <workItem from="1668342737719" duration="49308000" />
+      <workItem from="1669183012212" duration="1409000" />
+      <workItem from="1669389633957" duration="3715000" />
+      <workItem from="1669393640536" duration="212000" />
+      <workItem from="1669551218002" duration="5301000" />
+      <workItem from="1669559931336" duration="57000" />
+      <workItem from="1669561749238" duration="4231000" />
+      <workItem from="1669671769711" duration="13000" />
+      <workItem from="1669730957933" duration="2307000" />
+      <workItem from="1669998328326" duration="23311000" />
+      <workItem from="1670063511962" duration="1334000" />
+      <workItem from="1670064918526" duration="12286000" />
+      <workItem from="1670078333704" duration="103000" />
+      <workItem from="1670078455117" duration="127000" />
+      <workItem from="1670079392992" duration="1603000" />
+      <workItem from="1670081854066" duration="157000" />
+      <workItem from="1670082041041" duration="117000" />
+    </task>
+    <task id="LOCAL-00001" summary="changed application.properties">
+      <created>1670078505084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670078505084</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="newDeployBranch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed application.properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed application.properties" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

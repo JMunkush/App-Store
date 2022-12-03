@@ -1,0 +1,185 @@
+@import '../variables';
+
+@media screen and (min-width: 576px) {
+
+	.head-top {
+		// .head-top__logo
+		&__logo {
+			flex: 0 0 100px;
+		}
+	}
+}
+
+@media screen and (min-width: 769px) {
+
+	.header {
+		padding: 8px 0 0 0;
+	}
+
+	.head-top {
+		padding: 0;
+		// .head-top__search-lbl
+		&__search-lbl {
+			// flex: 0 0 292px;
+			flex: 0 0 292 / 1202 * 100%;
+			position: relative;
+
+			& > i {
+				pointer-events: none;
+				position: absolute;
+				top: 50%;
+				right: 14px;
+				transform: translateY(-50%);
+			}
+		}
+
+		// .head-top__search-inp
+		&__search-inp {
+			position: static;
+			transform: scaleX(1);
+			padding: 11px 44px 11px 11px;
+			flex: 1 0;
+		}
+
+		// .head-top__logo
+		&__logo {
+			flex: 0 0 200px;
+		}
+
+		//.head-top__lang-list
+		&__lang-list {
+			display: flex;
+			margin: 0 38px 0 0;
+		}
+
+		// // .head-top__lang-item
+		&__lang-item {
+			font-size: 16px;
+
+			&:not(:last-child) {
+				padding: 0 13px 0 0;
+				position: relative;
+
+				&::after {
+					content: '';
+					right: 6px;
+				}
+			}
+		}
+
+		// .head-top__cart
+		&__cart {
+			& > i {
+				font-size: 27px;
+			}
+		}
+
+		// .head-top__cart-badge
+		&__cart-badge {
+			font-size: 16px;
+		}
+	}
+
+	.head-nav-bttm {
+		width: 235 / 360 * 100%;
+	
+		// .head-top__right
+		& >.head-top__right {
+			justify-content: center;
+			padding: 28px;
+		}
+	
+		// .head-nav-bttm__list
+		&__list {
+			padding: 12px;
+		}
+	}
+}
+
+@media screen and (min-width: 1040px) {
+	
+	.head-top {
+
+		// .head-top__logo
+		&__logo {
+			flex: 0 0 234 / 1202 * 100%;
+		}
+
+		// .head-top__menu
+		&__menu {
+			display: none;
+		}
+
+		// .head-top__right
+		&__right {
+			display: flex;
+		}
+	}
+
+	.head-nav-bttm {
+		position: static;
+		width: 100%;
+	
+		// .head-top__right
+		& >.head-top__right {
+			display: none;
+		}
+	
+		// .head-nav-bttm__list
+		&__list {
+			padding: 18px 0 0 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	
+		// .head-nav-bttm__item
+		&__item {
+			text-align: left;
+			position: relative;
+			padding: 0 0 20px 0;
+
+			&:not(:last-child) {
+				margin: 0;
+			}
+	
+			&_active {
+				font-weight: 500;
+				position: relative;
+
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 20px;
+					left: 0;
+					width: 70%;
+					height: 1px;
+					background-color: $black;
+				}
+	
+				& > .head-nav-bttm__sublist {
+					display: block;
+				}
+			}
+
+			&:hover > .head-nav-bttm__sublist {
+				opacity: 1;
+				pointer-events: stroke;
+			}
+		}
+	
+		// .head-nav-bttm__sublist
+		&__sublist {
+			position: absolute;
+			display: block;
+			padding: 20px;
+			top: 95%;
+			opacity: 0;
+			pointer-events: none;
+			z-index: 10;
+			transition: all .3s linear;
+		}
+
+	}
+	
+}

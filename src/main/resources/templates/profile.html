@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html">
+
+
+<div layout:fragment="main-content">
+    <div class = "row mt-3">
+<!--        <div class = "col-sm-3">-->
+<!--            <ul class="list-group" >-->
+<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white" th:text="#{Categories}">Categories</strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/cart.png">   <strong style="color: black" th:text="#{All}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/phone.png">  <strong style="color: black"  th:text="#{Phone_Gadgets}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/tv.png">  <strong style="color: black"  th:text="#{TV_audio}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/game.png">  <strong style="color: black"   th:text="#{Game_Consoles}"></strong></li>-->
+<!--                <li class="list-group-item"><img style="margin-left: 10px;margin-bottom: 5px;margin-right: 10px" src="icons/trolley-cart.png"> <strong style="color: black"  th:text="#{Other}">Other</strong></li>-->
+<!--            </ul>-->
+<!--            <br>-->
+<!--            <ul class="list-group" >-->
+<!--                <li class="list-group-item active" style="background-color: #ff6f1a"><strong style="color: white"  th:text="#{label.brands}"></strong></li>-->
+<!--                <strong style="color: black" ><a th:href="@{'detailsBrand?id='+${br.getId()}}" class="list-group-item list-group-item-action" th:each="br:${brands}" th:text="${br.getName()}" style="color: black"></a></strong>-->
+<!--            </ul>-->
+<!--            <br>-->
+<!--        </div>-->
+        <div class = "col-sm-5">
+            <h3>Profile</h3>
+            <div class = "alert alert-success alert-dismissible fade show" th:hidden="${success_ava == null}"  th:text="${success_ava}" role="alert">
+                <button type="button" class = "close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <img style="width: 100%" class="my-3" th:src="@{'/viewphoto/'+${currentUser.userAvatar}}">
+            <form th:action="@{'/uploadAvatar'}" method="post" enctype="multipart/form-data">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name = "user_ava" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <button style="margin-left: 300px" class="btn btn-success mt-3">UPDATE AVATAR</button>
+                </div>
+            </form>
+            <br>
+            <br>
+            <form th:action="@{'updateProfile'}" method="post">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="email" class="form-control" th:value="${currentUser.email}" readonly>
+                </div> <br>
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" name="full_name" class="form-control" th:value="${currentUser.full_name}">
+                </div> <br>
+                <div class="form-group">
+                    <button  style="margin-left: 300px" class="btn btn-success" >UPDATE PROFILE</button>
+                </div>
+            </form>
+            <br>
+            <div class = "alert alert-danger alert-dismissible fade show" th:hidden="${error == null}"  th:text="${error}" role="alert">
+                <button type="button" class = "close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class = "alert alert-success alert-dismissible fade show" th:hidden="${success == null}"  th:text="${success}" role="alert">
+                <button type="button" class = "close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <br>
+            <form th:action="@{'updatePassword'}" method="post">
+                <div class="form-group">
+                    <label>Old Password:</label>
+                    <input type="password" name="old_password" class="form-control" placeholder="Old password" >
+                </div> <br>
+                <div class="form-group">
+                    <label>New Password:</label>
+                    <input type="password" name="new_password" class="form-control" placeholder="New Password">
+                </div> <br>
+                <div class="form-group">
+                    <label>Retype Password:</label>
+                    <input type="password" name="re_password" class="form-control" placeholder="Retype password">
+                </div> <br>
+                <div class="form-group">
+                    <button style="margin-left: 300px" class="btn btn-success" >UPDATE PROFILE</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</html>
